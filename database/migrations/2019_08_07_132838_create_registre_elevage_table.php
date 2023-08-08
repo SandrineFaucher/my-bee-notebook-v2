@@ -15,8 +15,8 @@ return new class extends Migration
             $table->primary(['rucher_id', 'visite_id']);
             $table->timestamps();
 
-            $table->foreignId('rucher_id')->constrained()->onDelete('cascade');
-            $table->foreignId('visite_id')->constrained()->onDelete('cascade');
+            $table->foreignId('rucher_id');
+            $table->foreignId('visite_id');
         });
     }
 

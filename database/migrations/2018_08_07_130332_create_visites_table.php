@@ -18,20 +18,20 @@ return new class extends Migration
             $table->integer('nombre_cadres_miel');
             $table->integer('nombre_hausses');
             $table->string('reine_vue', 191);
-            $table->string('cellules_royales', 191);
+            $table->integer('cellules_royales');
             $table->string('ruche_orpheline', 191);
             $table->string('essaimage', 191);
             $table->string('nourrissement', 191);
             $table->string('traitement', 191);
-            $table->integer('grille_reine');
-            $table->integer('chasse_abeilles');
+            $table->string('grille_reine', 3);
+            $table->string('chasse_abeilles', 3);
             $table->integer('grille_propolis');
             $table->date('date_visite');
             $table->integer('force');
             $table->text('commentaire');
             $table->timestamps();
 
-            $table->foreignId('ruche_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('ruche_id');
         });
     }
 
