@@ -1,0 +1,26 @@
+/* STYLE MY-BEE-NOTEBOOK-V2 */
+
+/* CHARTE GRAPHIQUE */
+
+/* Couleurs
+______________
+or metallique : E2B415
+chamoisée     : BB8A69
+cal poly vert : 145619
+alice bleu    : E4ECF1
+charbon       : 243B4A
+
+   Polices de caractères
+___________________________
+H1            : Pacifico
+p             : Comfortaa
+
+*/
+
+
+/* GLOBAL */
+
+/* register.blade.php */
+body{
+    background-color: #E4ECF1;
+}
