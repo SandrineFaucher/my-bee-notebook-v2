@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container-fluid" id="register" style="background-image:url(images/belle-nature-retro-lavande.jpg)";>
+    <div class="row justify-content-center row opacity-75 justify-content-center" id="connexion">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Connexion') }}</div>

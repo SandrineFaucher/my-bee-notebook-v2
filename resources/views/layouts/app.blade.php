@@ -12,27 +12,34 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <!-- Google Fonts -->
-    
+    <!-- Google Fonts / Pacifico et Comfortaa-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Pacifico&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/css/app.css'])
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md shadow-sm fixed-top" data-bs-theme="dark" >
+            <div class="container-fluid">
+                
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <div class="logo d-flex ml-0">
+                    <img src="{{ asset('images/logo-2-my-bee-notebook.png') }}" alt="logo-du-site" class="w-25">
+                    <p class="my-auto fs-3">My-Bee-Notebook</p>
+                    </div>
                 </a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -41,26 +48,29 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link fs-4 text-white" href="{{ route('login') }}">{{ __('Connexion') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link fs-4 text-white" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                            <li class="nav-item dropdown text-center pe-5">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white fs-4" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{strtoupper(Auth::user()->nom ) }} {{strtoupper(Auth::user()->prenom)}}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <div class="dropdown-menu dropdown-menu-end text-center drop-down-square me-5" aria-labelledby="navbarDropdown">
+                                    <a href="{{route('users.edit', $user = Auth::user() )}}" class="text-white link-offset-2 link-underline link-underline-opacity-0 fs-4">
+                                        Mon compte
+                                    </a>
+                                    <a class="dropdown-item text-white fs-4" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Se déconnecter') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -75,6 +85,22 @@
         </nav>
 
         <main class="py-4">
+            <div class="container-fluid text-center">
+                @if (session()->has('message'))
+                    <p class="alert alert-success"> {{ session()->get('message') }} </p>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li> {{ $error }} </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+
             @yield('content')
         </main>
     </div>

@@ -20,7 +20,75 @@ p             : Comfortaa
 
 /* GLOBAL */
 
+body {
+    background-color: aliceblue;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 600;
+}
+.btn-valider{
+    background-color: #243B4A;
+    color: white;
+    opacity: 1;
+}
+h1{
+    font-weight: 500;
+} 
+h3{
+    font-family: 'Pacifico', cursive;
+}
+
+    
+
+
 /* register.blade.php */
-body{
-    background-color: #E4ECF1;
+#register{
+    width: auto;
+    height: 150vh;
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    justify-content: center;
+}
+#inscription{
+    width: 70rem;
+    font-family: 'Comfortaa', cursive;
+    color: #243B4A;
+    font-weight: 600;
+    margin-top: 300px;
+}
+
+/* login.blade.php */
+#connexion{
+    width: 70rem;
+    font-family: 'Comfortaa', cursive;
+    color: #243B4A;
+    font-weight: 600;
+    margin-top: 300px;
+}
+/* layouts/app.blade.php */
+.navbar {
+    background-color: #243B4A;
+}
+.logo p{
+    font-family: 'Pacifico', cursive;
+    color: #E2B415;
+}
+.drop-down-square{
+    background-color: #243B4A;
+}
+
+/* home.blade.php */
+#home{
+    margin-top: 300px;
+}
+
+/* user/edit.blade.php */
+h1{
+    margin-top: 250px;
+}
+#registre-elevage{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #E2B415;
+    box-shadow:8px 8px 6px 2px #243B4A;
 }

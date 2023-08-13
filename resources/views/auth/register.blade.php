@@ -2,11 +2,12 @@
 
 @section('content')
 
-<div class="container background-register" >
-    <div class="row justify-content-center">
+<div class="container-fluid background-register position-relative" id="register" style="background-image:url(images/belle-nature-retro-lavande.jpg)"; >
+    
+    <div class="row opacity-75 justify-content-center" id="inscription">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('INSCRIPTION') }}</div>
+                <div class="card-header ">{{ __('INSCRIPTION') }}</div>
 
                 <!--Formulaire d'inscription-->
                 <div class="card-body">
@@ -84,7 +85,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-valider">
                                     {{ __('Valider') }}
                                 </button>
                             </div>
