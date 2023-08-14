@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md shadow-sm fixed-top" data-bs-theme="dark" >
+        <nav class="navbar navbar-expand-md shadow-sm " data-bs-theme="dark" >
             <div class="container-fluid">
                 
                 <a class="navbar-brand" href="{{ url('/') }}">

@@ -21,7 +21,7 @@
                             <div class="col-md-6">
                                 <input id="nom" type="text" placeholder="" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
 
-                                @error('name')
+                                @error('nom')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -44,6 +44,7 @@
                             </div>
                         </div>
 
+                                                
                         <!--Email-->
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Adresse email') }}</label>
