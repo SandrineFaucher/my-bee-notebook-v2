@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid background-register position-relative" id="register" style="background-image:url(images/belle-nature-retro-lavande.jpg)"; >
+<div class="container-fluid background-register position-relative" id="register" style="background-image:url(images/image-abeille-lavande-web.jpg)"; >
     
     <div class="row opacity-75 justify-content-center" id="inscription">
         <div class="col-md-8">
@@ -86,7 +86,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary btn-valider">
+                                <button type="submit" class="btn btn-valider">
                                     {{ __('Valider') }}
                                 </button>
                             </div>

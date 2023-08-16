@@ -6,11 +6,23 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rules\Password;
+use App\Models\Adresse;
 
 
 class UserController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $adresses= Adresse::all('user_id');
+        return view('user.edit', [
+            'adresses' => $adresses,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -111,8 +123,13 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-        //
+        if (Auth::user()->id == $user->id) {
+            $user->delete();
+            return redirect()->route('home')->with('message', 'Le compte a bien été supprimé');
+        } else {
+            return redirect()->back()->withErrors(['erreur' => 'Supression du compte impossible']);
+        }
     }
 }

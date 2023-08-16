@@ -25,7 +25,7 @@ body {
     font-family: 'Comfortaa', cursive;
     font-weight: 600;
 }
-.btn-valider{
+.btn{
     background-color: #243B4A;
     color: white;
     opacity: 1;
@@ -36,6 +36,7 @@ h1{
 h3{
     font-family: 'Pacifico', cursive;
 }
+
 
     
 
@@ -86,7 +87,9 @@ h3{
 h1{
     margin-top: 250px;
 }
-#registre-elevage{
+#registre-elevage,
+#modifications,
+#changepassword{
     padding: 20px;
     border-radius: 10px;
     background-color: #E2B415;

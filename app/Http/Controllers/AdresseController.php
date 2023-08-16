@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Adresse;
-use App\Models\Auth;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AdresseController extends Controller
 {
@@ -13,7 +14,7 @@ class AdresseController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -33,22 +34,23 @@ class AdresseController extends Controller
         //je valide mes données en précisant les critères exigés
         'adresse'     => 'required|min:3|max:191',
         'ville'       => 'required|min:3|max:191',
-        'code_postal' => 'required|min:5|max:5',
-        'napi'        => 'required|min:0|max:8',
+        'code_postal' => 'required|max:5',
+        'napi'        => 'required|max:8',
         ]);
 
-        $adresse = new Adresse;
-        $adresse->adresse = $request->input('adresse');
-        $adresse->code_postal = $request->input('code_postal');
-        $adresse->ville = $request->input('ville');
-        $adresse->napi = $request->input('napi');
-        $adresse->user_id = $request->input('user_id');
-
-        $adresse->save();
-
-        return redirect()->route('user.edit', Auth::user())->with('message', 'Votre adresse a bien été enregistrée');
-
-
+        //je sauvegarde l'adresse 
+        Adresse::create ([
+        'adresse'     => $request->adresse,
+        'ville'       => $request->ville,
+        'code_postal' => $request->code_postal,
+        'napi'        => $request->napi,
+        'user_id'     => Auth::user()->id, // me permet d'accéder et de créer l'adresse pour le 
+                                          // user connecté
+    
+        
+        ]);   
+        return redirect()->route('users.edit', Auth::user())->with('message', 'Votre adresse a bien été enregistrée');
+        
     }
 
     /**
@@ -62,9 +64,10 @@ class AdresseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Adresse $adresse)
     {
-        
+        return view('user/adresse.edit', ['adresse' =>$adresse]);
+       
     }
 
     /**
