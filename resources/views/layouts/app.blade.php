@@ -27,10 +27,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md shadow-sm fixed-top" data-bs-theme="dark" >
+        <nav class="navbar navbar-expand-md shadow-sm sticky-top" data-bs-theme="dark" >
             <div class="container-fluid">
                 
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('home') }}">
                     <div class="logo d-flex ml-0">
                     <img src="{{ asset('images/logo-2-my-bee-notebook.png') }}" alt="logo-du-site" class="w-25">
                     <p class="my-auto fs-3">My-Bee-Notebook</p>
@@ -90,7 +90,7 @@
         </nav>
 
         <main class="py-4">
-            <div class="container-fluid text-center">
+            <div class="container-fluid text-center mt-5 pt-5">
                 @if (session()->has('message'))
                     <p class="alert alert-success"> {{ session()->get('message') }} </p>
                 @endif

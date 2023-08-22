@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             RucherSeeder::class,
             RucheSeeder::class,
             RecolteSeeder::class,
-            Registre_elevageSeeder::class,
+            RegistreElevageSeeder::class,
+            RucherRecolteSeeder::class,
         ]);
     }
 }

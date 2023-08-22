@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Rucher;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Adresse;
+
 
 class RucherController extends Controller
 {
@@ -11,7 +16,6 @@ class RucherController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -27,7 +31,29 @@ class RucherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // je valide mes données de formulaire
+        $request->validate([
+            'nom_rucher'   => 'required|min:1|max:191',
+            'environnement' => 'required|max:191',
+            'nombre_ruches' => 'required|min:1|max:3',
+            'adresse'      => 'required|min:3|max:191',
+            'ville'        => 'required|min:3|max:191',
+            'code_postal'  => 'required|max:5',
+        ]);
+
+        //je sauvegarde l'adresse dans la table "adresses" pour pouvoir récupérer l'adresse_id
+        //dont j'ai besoin pour la table "ruchers" (afin de sauvegarder plusieurs adresses de ruchers)
+        $adresse = Adresse::create($request->all());
+
+        //je sauvegarde en BDD dans la table 'ruchers'
+        Rucher::create([
+            'nom_rucher'   => $request->nom_rucher,
+            'environnement' => $request->environnement,
+            'nombre_ruches' => $request->nombre_ruches,
+            'adresse_id'   => $adresse->id,
+            'user_id'      => $request->user_id,
+        ]);
+        return redirect()->route('home')->with('message', 'Votre rucher a bien été créé !');
     }
 
     /**
@@ -41,24 +67,67 @@ class RucherController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Rucher $rucher)
     {
-        //
+        return view('rucher/edit', ['rucher' => $rucher]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Rucher $rucher)
     {
-        //
+        // je valide mes données de formulaire
+        $request->validate([
+            'nom_rucher'   => 'required|min:1|max:191',
+            'environnement' => 'required|max:191',
+            'nombre_ruches' => 'required|min:1|max:3',
+            'adresse'      => 'required|min:3|max:191',
+            'ville'        => 'required|min:3|max:191',
+            'code_postal'  => 'required|max:5',
+        ]);
+
+        //je sauvegarde l'adresse dans la table "adresses" pour pouvoir récupérer l'adresse_id
+        //dont j'ai besoin pour la table "ruchers" (afin de sauvegarder plusieurs adresses de ruchers)
+        $adresse = Adresse::find($rucher->adresse_id);
+        $adresse->update($request->all());
+
+        //je sauvegarde en BDD dans la table 'ruchers'
+        $rucher->update([
+            'nom_rucher'   => $request->nom_rucher,
+            'environnement' => $request->environnement,
+            'nombre_ruches' => $request->nombre_ruches,
+        ]);
+        return redirect()->route('home')->with('message', 'Votre rucher a bien été modifié !');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Rucher $rucher)
     {
-        //
+        //je charge les visites du rucher
+        $rucher->load('visites');
+     
+        //je vérifie si le tableau des visites est vide
+        if (count($rucher->visites) == 0) {
+
+            // et si le rucher appartient au user connecté
+            if (Auth::user()->id == $rucher->user_id) {
+
+                // Si les conditions précédentes sont respectées je supprime le rucher
+                $rucher->delete();
+
+                //et je retourne le message de suppression
+                return redirect()->route('home')->with('message', 'Le rucher a bien été supprimé !');
+            } else {
+                return redirect()->route('home')->withErrors(['erreur'=> 'Vous n\'êtes pas le propriétaire du rucher']);
+            }
+
+            // si non j'affiche le message d'impossibilité de suppression
+        } else {
+
+            return redirect()->route('home')->withErrors(['erreur' =>'Le rucher ne peut être supprimé car au moins une visite lui est associé !']);
+        }
     }
 }

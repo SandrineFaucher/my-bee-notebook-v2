@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid" id="register" style="background-image:url(images/image-abeille-lavande-web.jpg)";>
+<div class="container-fluid" id="register" style="background-image:url(images/image-abeille-lavande.jpg)";>
     <div class="row justify-content-center row opacity-75 justify-content-center" id="connexion">
         <div class="col-md-8">
             <div class="card">
@@ -58,12 +58,12 @@
                         <!--Bouton valider-->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-secondary">
                                     {{ __('Valider') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-secondary" href="{{ route('password.request') }}">
                                         {{ __('Mot de passe oublié ?') }}
                                     </a>
                                 @endif

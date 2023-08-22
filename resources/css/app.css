@@ -82,10 +82,26 @@ h3{
 #home{
     margin-top: 300px;
 }
-
+#square-ruchers{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #E4ECF1;
+    box-shadow:8px 8px 6px 2px #243B4A;
+}
+#new-rucher{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #E2B415;
+    box-shadow:8px 8px 6px 2px #243B4A;
+}
+.btn-delete{
+        background: none;
+        padding: 0px;
+        border: none;
+}
 /* user/edit.blade.php */
 h1{
-    margin-top: 250px;
+    margin-top: 10px;
 }
 #registre-elevage,
 #modifications,

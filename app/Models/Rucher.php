@@ -9,28 +9,42 @@ class Rucher extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
+        'adresse_id',
+        'nom_rucher',
+        'nombre_ruches',
+        'environnement',
+        ];
+
+
     // nom de la fonction au pluriel car un rucher peut posséder plusieurs ruches
     // cardinalités 1,n
-    public function Ruches(){
+    public function ruches(){
         return $this->hasMany(Ruche::class);
     }
 
     //nom de la fonction au singulier car un rucher peut être associé à un seul user
     // cardinalité 1,1
-    public function User(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
     // nom au singulier car un rucher peut être associé à une seule adresse
     // cardinalité 1,1
-    public function Adresse(){
+    public function adresse(){
         return $this->belongsTo(Adresse::class);
     }
 
     // nom au singulier car 0 ou plusieurs ruchers peuvent être associés à un registre d'élevage
     // cardinalité 0,n
-    public function Registre_elevage(){
-        return $this->hasMany(Registre_elevage::class);
+    public function visites(){
+        return $this->belongsToMany(Visite::class, 'registre_elevage');
     }
 
     

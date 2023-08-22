@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('adresse', 100);
             $table->char('code_postal', 5);
             $table->string('ville', 50);
-            $table->string('napi', 100);
+            $table->string('napi', 100)->nullable();
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

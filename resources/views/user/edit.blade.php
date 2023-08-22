@@ -55,12 +55,12 @@
               <div class="text-center">
 
               <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
-                Créer
+               Valider l'adresse
               </button>
               
               <a href="">
               <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
-                  Modifier
+                  Modifier l'adresse
               </button>
               </a>
 
@@ -68,7 +68,7 @@
             
           </form>
 
-          <a href="{{ asset('images/test.pdf') }}"  >PDF </a>   
+          <a href="{{route('pdf')}}" > PDF </a>   
             
     </div>
 
@@ -119,7 +119,7 @@
               @csrf
               @method("delete")
 
-                  <button type="submit" class="btn btn-secondary col-12 mb-2 mt-3">
+                  <button type="submit" class="btn btn-secondary col-md-8 mb-2 mt-3">
                     Suppression du compte
                   </button>
                   <p><i class="fa-solid fs-4 fa-triangle-exclamation"></i> Cette action entraîne la suppression de tous les éléments associés au compte</P>

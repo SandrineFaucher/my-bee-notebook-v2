@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       //Je récupère le user connecté dans une variable
+       $user = User::find(Auth::user()->id);
+       //je charge les ruchers de mon user connecté 
+       $user->load('ruchers');
+       
+       //je les renvoie dans la vue Home
+       return view('home', ['user'=> $user]);
+       
     }
 }

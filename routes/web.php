@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PdfController;
 
 
 /*
@@ -37,7 +38,7 @@ Route::resource('/ruchers', \App\Http\Controllers\RucherController::class);
 Route::resource('/ruches', \App\Http\Controllers\RucheController::class);
 
 //------------------Route correspondant à PdfController -------------------------------//
-Route::get('/pdf', [PdfController::class,'index']);
+Route::get('/pdf',  [PdfController::class,'index'])->name('pdf');
 
 //------------------Route correspondant à RecolteController----------------------------//
 Route::resource('/recoltes', \App\Http\Controllers\RecolteController::class);
