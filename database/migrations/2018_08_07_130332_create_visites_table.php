@@ -23,15 +23,14 @@ return new class extends Migration
             $table->string('essaimage', 191);
             $table->string('nourrissement', 191);
             $table->string('traitement', 191);
-            $table->string('grille_reine', 3);
-            $table->string('chasse_abeilles', 3);
+            $table->boolean('grille_reine');
+            $table->boolean('chasse_abeilles');
             $table->integer('grille_propolis');
             $table->date('date_visite');
             $table->integer('force');
             $table->text('commentaire');
             $table->timestamps();
 
-            $table->foreignId('ruche_id');
         });
     }
 

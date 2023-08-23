@@ -4,10 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Rucher;
+use App\Models\Ruche;
 use Illuminate\Support\Facades\DB;
 
-class RucherRecolteSeeder extends Seeder
+class RuchesRecoltesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +15,8 @@ class RucherRecolteSeeder extends Seeder
     public function run(): void
     {
         for($i = 1; $i <16; $i++){
-            DB::table('ruchers_recolte')->insert([
-                'rucher_id' => rand(1 , Rucher::count()),
+            DB::table('ruches_recoltes')->insert([
+                'ruche_id' => rand(1 , Ruche::count()),
                 'recolte_id' => $i,
             ]);
             }

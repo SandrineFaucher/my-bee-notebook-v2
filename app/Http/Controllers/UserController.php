@@ -17,10 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $adresses= Adresse::all('user_id');
-        return view('user.edit', [
-            'adresses' => $adresses,
-        ]);
+        
     }
 
     /**

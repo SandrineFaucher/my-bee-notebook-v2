@@ -23,9 +23,10 @@ class Recolte extends Model
     ];
 
 
-    // nom de la fonction au pluriel car une récolte est associée à plusieurs ruches
-    // cardinalité 1,n
+    
+
+    // nom au pluriel car plusieurs ruches sont associées à plusieurs récoltes
     public function ruches(){
-        return $this->hasMany(Ruche::class);
+        return $this->belongsToMany(Ruche::class, 'ruches_recoltes');
     }
 }

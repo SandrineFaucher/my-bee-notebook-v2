@@ -18,7 +18,6 @@ class RecolteFactory extends Factory
     public function definition(): array
     {
         return [
-            'ruche_id' => rand(1, Ruche::count()),
             'miel' => $this->faker->randomFloat(2, 0, 50),
             'pollen' =>$this->faker->randomFloat(2, 0, 5),
             'propolis' =>$this->faker->randomFloat(2, 0, 5),

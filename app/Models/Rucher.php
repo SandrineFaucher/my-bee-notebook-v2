@@ -41,11 +41,5 @@ class Rucher extends Model
         return $this->belongsTo(Adresse::class);
     }
 
-    // nom au singulier car 0 ou plusieurs ruchers peuvent être associés à un registre d'élevage
-    // cardinalité 0,n
-    public function visites(){
-        return $this->belongsToMany(Visite::class, 'registre_elevage');
-    }
-
-    
+            
 }

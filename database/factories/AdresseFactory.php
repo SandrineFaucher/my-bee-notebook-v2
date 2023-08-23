@@ -22,7 +22,7 @@ class AdresseFactory extends Factory
             'code_postal' => substr($this->faker->departmentNumber() . '000', 0, 5),
             'ville' => $this->faker->city(),
             'user_id' =>rand(1, User::count()),
-            'napi' => $this->faker->regexify('[A] [0-9]{7}'),
+            'napi' => $this->faker->regexify('[A][0-9]{7}'),
         ];
     }
 }

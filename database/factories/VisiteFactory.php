@@ -18,7 +18,6 @@ class VisiteFactory extends Factory
     public function definition(): array
     {
         return [
-            'ruche_id' => rand(1, Ruche::count()),
             'nombre_cadres_abeilles' =>$this->faker->numberBetween(0,12),
             'nombre_cadres_couvain' =>$this->faker->numberBetween(0,12),
             'nombre_cadres_miel' =>$this->faker->numberBetween(0,12),
@@ -29,10 +28,10 @@ class VisiteFactory extends Factory
             'essaimage' =>$this->faker->randomElement(['pas de risque', 'risque élevé', 'a essaimé']),
             'nourrissement' =>$this->faker->randomElement(['candi', 'sirop', 'miel']),
             'traitement' =>$this->faker->randomElement(['bandelette anti-varoa', 'acide oxalique']),
-            'grille_reine' =>$this->faker->randomElement(['oui', 'non']),
-            'chasse_abeilles' =>$this->faker->randomElement(['oui', 'non']),
+            'grille_reine' =>$this->faker->boolean(),
+            'chasse_abeilles' =>$this->faker->boolean(),
             'grille_propolis' =>$this->faker->numberBetween(0,5),
-            'date_visite'=>$this->faker->dateTime(), 
+            'date_visite'=>$this->faker->dateTimeBetween('-3 month'), 
             'force' =>$this->faker->numberBetween(0,10),
             'commentaire' =>$this->faker->paragraph(),
         ];

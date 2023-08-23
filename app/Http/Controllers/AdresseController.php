@@ -12,6 +12,7 @@ class AdresseController extends Controller
     
     
 
+
     /**
      * Store a newly created resource in storage.
      */
@@ -53,16 +54,32 @@ class AdresseController extends Controller
      */
     public function edit(Adresse $adresse)
     {
-        
+        return view('user/edit', ['adresse' => $adresse]);
        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Adresse $adresse)
     {
-        //
+        $request->validate([
+            //je valide mes données en précisant les critères exigés
+            'adresse'     => 'required|min:3|max:191',
+            'ville'       => 'required|min:3|max:191',
+            'code_postal' => 'required|max:5',
+            'napi'        => 'required|max:8',
+            ]);
+    
+            //je sauvegarde l'adresse 
+            $adresse->update ([
+            'adresse'     => $request->adresse,
+            'ville'       => $request->ville,
+            'code_postal' => $request->code_postal,
+            'napi'        => $request->napi,
+            
+            ]);
+            return redirect()->route('users.edit', Auth::user())->with('message', 'Votre adresse a bien été modifiée !');
     }
 
     /**

@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-center"> Mes ruchers </h1>
  
-    <div class="container-fluid  mt-5 p-5">
+    <div class="container-fluid  mt-5 p-2">
         <div class="row d-flex justify-content-between">
 
             <div class="col-md-3 m-4 p-3" id="new-rucher">
@@ -13,18 +13,17 @@
             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 
             
-
                 <!--Ajout d'un rucher-->
                 <div class="row">
-                <div class="col-md-10">
-                    <p class="fs-3">Ajouter un rucher</p>
+                <div class="col-md-12">
+                    <p class="fs-3 text-center">Ajouter un rucher</p>
                 </div>
                 </div>
 
 
                 <!--Nom ou numéro du rucher-->
                 <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <label for="nom_rucher">Nom du rucher :</label>
                     <input type="text" class="form-control @error('nom_rucher') is invalid @enderror "
                         name="nom_rucher" />
@@ -36,7 +35,7 @@
 
                 <!--Environnement-->
                 <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <label for="nom_rucher">Environnement :</label>
                     <select class="form-select @error('environnement') is invalid @enderror" name="environnement"
                         aria-label="Default select example">
@@ -55,7 +54,7 @@
 
                 <!--Adresse rucher-->
                 <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <label for="nom_rucher">Adresse :</label>
                     <input type="text" class="form-control @error('adresse') is invalid @enderror" name="adresse" />
                     @error('adresse')
@@ -78,10 +77,9 @@
                 </div> 
 
 
-
                 <!--Nombre de ruches-->
                 <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <label for="nombre_ruches">Nombre de ruches (1 à 100) :</label>
                     <input type="number" class="form-control @error('environnement') is invalid @enderror"
                         name="nombre_ruches" min="1" max="100" />
@@ -92,12 +90,15 @@
                 @enderror
 
                 <!--Créer le rucher/ Valider-->
-                <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
+                <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center ">
                     valider
                 </button>
+                </div>
             </form>
             </div>
         
+        <!--Affichage des ruchers créés-->
         <div class="col-md-8 d-flex justify-content-between flex-wrap " id="square-ruchers">
             <div class="row">
             @foreach ($user->ruchers as $rucher)
@@ -119,8 +120,8 @@
                     @method('delete')
                     
                         <button type="submit" class="btn-delete" ><i class="fa-solid fa-circle-xmark"></i> </button> 
-                    
                 </form>
+                
                 </div>
                 </div>
 

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->float('gelee_royale');
             $table->timestamps();
 
-            $table->foreignId('ruche_id')->nullable()->constrained()->onDelete('set null');
+            
         });
     }
 

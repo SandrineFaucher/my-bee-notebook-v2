@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('registre_elevage', function (Blueprint $table) {
-            $table->primary(['rucher_id', 'visite_id']);
+            $table->primary(['ruche_id', 'visite_id']);
             $table->timestamps();
 
-            $table->foreignId('rucher_id')->constrained();
+            $table->foreignId('ruche_id')->constrained();
             $table->foreignId('visite_id')->constrained();
         });
     }
