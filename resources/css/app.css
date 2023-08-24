@@ -82,11 +82,13 @@ h3{
 #home{
     margin-top: 300px;
 }
-#square-ruchers{
+#square-ruchers,
+#square-ruches{
     padding: 20px;
     border-radius: 10px;
     background-color: #E4ECF1;
     box-shadow:8px 8px 6px 2px #243B4A;
+    
 }
 #new-rucher{
     padding: 20px;
@@ -110,4 +112,24 @@ h1{
     border-radius: 10px;
     background-color: #E2B415;
     box-shadow:8px 8px 6px 2px #243B4A;
+}
+
+/* home.blade.php */
+#rucher{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #E4ECF1;
+    box-shadow:8px 8px 6px 2px #243B4A;
+}
+
+/* rucher/show.blade.php */
+
+#ruche{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #E4ECF1;
+    box-shadow:8px 8px 6px 2px #243B4A;
+}
+#icone-ruche{
+    height: 80px;
 }

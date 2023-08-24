@@ -16,6 +16,7 @@ class RucherController extends Controller
      */
     public function index()
     {
+        
     }
 
     /**
@@ -59,9 +60,12 @@ class RucherController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Rucher $rucher)
     {
-        //
+        // je récupère mes ruchers ainsi que ses ruches associées avec un eager loading
+        $rucher->load('ruches');
+        return view('rucher.show', ['rucher'=> $rucher]);
+              
     }
 
     /**
@@ -81,7 +85,7 @@ class RucherController extends Controller
         $request->validate([
             'nom_rucher'   => 'required|min:1|max:191',
             'environnement' => 'required|max:191',
-            'nombre_ruches' => 'required|min:1|max:3',
+            'nombre_ruches' => 'min:1|max:3',
             'adresse'      => 'required|min:3|max:191',
             'ville'        => 'required|min:3|max:191',
             'code_postal'  => 'required|max:5',
@@ -107,10 +111,10 @@ class RucherController extends Controller
     public function destroy(Rucher $rucher)
     {
         //je charge les visites du rucher
-        $rucher->load('visites');
+        $rucher->load('ruches');
      
         //je vérifie si le tableau des visites est vide
-        if (count($rucher->visites) == 0) {
+        if (count($rucher->ruches) == 0) {
 
             // et si le rucher appartient au user connecté
             if (Auth::user()->id == $rucher->user_id) {
