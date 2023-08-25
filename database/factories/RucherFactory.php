@@ -23,7 +23,6 @@ class RucherFactory extends Factory
             'user_id' => rand(1, User::count()),
             'adresse_id' => rand(1, Adresse::count()),
             'nom_rucher' => $this->faker->word(),
-            'nombre_ruches'=>$this->faker->randomNumber(2, Ruche::count()),
             'environnement'=>$this->faker->words(2, true), 
         ];
     }

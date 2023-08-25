@@ -74,19 +74,6 @@
         </div> 
 
 
-
-        <!--Nombre de ruches-->
-        <div class="row">
-        <div class="col-md-12">
-            <label for="nombre_ruches">Nombre de ruches (1 à 100) :</label>
-            <input type="number" class="form-control @error('environnement') is invalid @enderror"
-                name="nombre_ruches" min="1" max="100" value="{{$rucher->nombre_ruches}}"/>
-        </div>
-        </div>
-        @error('nombre_ruches')
-            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-        @enderror
-
         <!--Créer le rucher/ Valider-->
         <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
             Modifier

@@ -39,12 +39,11 @@
                             <label for="nom_rucher">Environnement :</label>
                             <select class="form-select @error('environnement') is invalid @enderror" name="environnement"
                                 aria-label="Default select example">
-                                <option value="Bois">Bois</option>
+                                <option value="Foret">Foret</option>
                                 <option value="Champs cultivés">Champs cultivés</option>
-                                <option value="Abords d'une rivière">Abords d'une rivière</option>
+                                <option value="Jardin privé">Jardin privé</option>
                                 <option value="Montagne">Montagne</option>
-                                <option value="Champ de Tournesol">Champs de tournesol</option>
-                                <option value="Champ de colza">Champs de colza</option>
+                                <option value="Ville">Ville</option>
                             </select>
                         </div>
                     </div>
@@ -77,19 +76,7 @@
                             @enderror
                         </div>
                     </div>
-
-
-                    <!--Nombre de ruches-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="nombre_ruches">Nombre de ruches (1 à 100) :</label>
-                            <input type="number" class="form-control @error('environnement') is invalid @enderror"
-                                name="nombre_ruches" min="1" max="100" />
-                        </div>
-                    </div>
-                    @error('nombre_ruches')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
+                    
 
                     <!--Créer le rucher/ Valider-->
                     <div class="col-md-12 text-center">
@@ -106,10 +93,14 @@
                     @foreach ($user->ruchers as $rucher)
                     <a href="{{route('ruchers.show',$rucher)}}" class="link-underline-light"> 
                         <div class="col-md-3 m-3 p-3" id="rucher">
-                             
+                            
+                            
+                            
+                            
+
                             <p>{{ $rucher->nom_rucher }}</p>
-                            <p>{{ $rucher->environnement }}</p>
-                            <p>{{ $rucher->nombre_ruches }}</p>
+                            
+                            
 
                             <div class="row">
                                 <div class="col-md-5">

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('ruchers', function (Blueprint $table) {
             $table->id();
             $table->string('nom_rucher', 100);
-            $table->integer('nombre_ruches');
             $table->string('environnement', 100);
             $table->timestamps();
 

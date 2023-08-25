@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('ruches', function (Blueprint $table) {
             $table->id();
             $table->string('nom_ruche', 100)->nullable();
-            $table->integer('numero')->nullable();
+            $table->integer('numero');
             $table->string('espece', 100);
-            $table->string('provenance', 100);
-            $table->string('lignee_reine', 100);
+            $table->string('provenance', 100)->nullable();
+            $table->string('lignee_reine', 100)->nullable();
             $table->integer('nombre_cadres');
             $table->timestamps();
 

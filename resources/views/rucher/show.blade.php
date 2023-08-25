@@ -8,8 +8,8 @@
 
 <div class="container-fluid  mt-5 p-2">
     <div class="row d-flex justify-content-between">   
-        <div class="col-md-3 m-4 p-3" id="new-rucher">
-            <form action="{{ route('ruches.store') }}" method="post">
+        <div class="col-md-3 m-4 p-3" id="new-ruche">
+            <form action="{{ route('ruche.store') }}" method="post">
                 @csrf
                 <!--passe rucher_id dans le formulaire-->
                 <input type="hidden" name="rucher_id" value="{{ $rucher->id }}">
@@ -119,19 +119,13 @@
 
 
 
-
-
-
-
 <div class="col-md-8 d-flex justify-content-start flex-wrap" id="square-ruches">
 @foreach ($rucher->ruches as $ruche)
 
 <!--Affichage des ruches appartenant au rucher -->
-
-   
         
-        {{-- <a href="{{route('ruchers.show',$rucher)}}"> --}}
-            <div class="col-md-2 m-4" id="ruche">
+        {{-- <a href="{{route('ruche.show',$ruche)}}"> --}}
+            <div class="col-md-2 m-4 p-2" id="ruche">
                 <div class="row">
                 <div class="col-md-5">
                     <img src="{{ asset('images/icone-ruche-charbon.png') }}" alt="ruche" id="icone-ruche">
@@ -143,6 +137,26 @@
                 </div>
                 </div>
 
+                <div class="row">
+            <!--icon de modification d'une ruche-->
+            <div class="col-md-3">
+                <a href="{{ route('ruche.edit', $ruche) }}">
+                     <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                </a>
+            </div>
+
+            <!--icon de suppression d'une ruche-->
+            <div class="col-md-3">
+                <form action="{{ route('ruche.destroy', $ruche) }}" method="post">
+                    @csrf
+                    @method('delete')
+
+                    <button type="submit" class="btn-delete"><i class="fa-solid fa-circle-xmark"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
             </div>
         {{-- </a> --}}
       

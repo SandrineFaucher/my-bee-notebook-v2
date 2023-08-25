@@ -35,7 +35,10 @@ Route::resource('/adresses', \App\Http\Controllers\AdresseController::class);
 Route::resource('/ruchers', \App\Http\Controllers\RucherController::class);
 
 //------------------Route correspondant à RucheController------------------------------//
-Route::resource('/ruches', \App\Http\Controllers\RucheController::class);
+Route::resource('/ruche', \App\Http\Controllers\RucheController::class);
+//route pour transférer une ruche de rucher//
+Route::get('/transfertruche', [App\Http\Controllers\RucheController::class, 'update'])->name('transfertruche');
+
 
 //------------------Route correspondant à PdfController -------------------------------//
 Route::get('/pdf',  [PdfController::class,'index'])->name('pdf');

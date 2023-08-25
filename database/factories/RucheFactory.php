@@ -21,7 +21,7 @@ class RucheFactory extends Factory
             'rucher_id' => rand(1, Rucher::count()),
             'nom_ruche' =>$this->faker->word(),
             'numero' =>$this->faker->randomNumber(3, true),
-            'espece' =>$this->faker->randomElement(['buckfast','abeilles noires','hybrides']),
+            'espece' =>$this->faker->randomElement(['Buckfast','Abeilles noires','Abeilles hybrides']),
             'provenance' =>$this->faker->city(),
             'lignee_reine' =>$this->faker->name(),
             'nombre_cadres' =>$this->faker->numberBetween(0,12),

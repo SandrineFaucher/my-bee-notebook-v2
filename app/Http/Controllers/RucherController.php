@@ -36,7 +36,6 @@ class RucherController extends Controller
         $request->validate([
             'nom_rucher'   => 'required|min:1|max:191',
             'environnement' => 'required|max:191',
-            'nombre_ruches' => 'required|min:1|max:3',
             'adresse'      => 'required|min:3|max:191',
             'ville'        => 'required|min:3|max:191',
             'code_postal'  => 'required|max:5',
@@ -50,7 +49,6 @@ class RucherController extends Controller
         Rucher::create([
             'nom_rucher'   => $request->nom_rucher,
             'environnement' => $request->environnement,
-            'nombre_ruches' => $request->nombre_ruches,
             'adresse_id'   => $adresse->id,
             'user_id'      => $request->user_id,
         ]);
@@ -85,7 +83,6 @@ class RucherController extends Controller
         $request->validate([
             'nom_rucher'   => 'required|min:1|max:191',
             'environnement' => 'required|max:191',
-            'nombre_ruches' => 'min:1|max:3',
             'adresse'      => 'required|min:3|max:191',
             'ville'        => 'required|min:3|max:191',
             'code_postal'  => 'required|max:5',
@@ -100,7 +97,7 @@ class RucherController extends Controller
         $rucher->update([
             'nom_rucher'   => $request->nom_rucher,
             'environnement' => $request->environnement,
-            'nombre_ruches' => $request->nombre_ruches,
+            
         ]);
         return redirect()->route('home')->with('message', 'Votre rucher a bien été modifié !');
     }
@@ -110,10 +107,10 @@ class RucherController extends Controller
      */
     public function destroy(Rucher $rucher)
     {
-        //je charge les visites du rucher
+        //je charge les ruches du rucher
         $rucher->load('ruches');
      
-        //je vérifie si le tableau des visites est vide
+        //je vérifie si le tableau des ruches est vide
         if (count($rucher->ruches) == 0) {
 
             // et si le rucher appartient au user connecté
