@@ -28,6 +28,7 @@ class VisiteController extends Controller
      */
     public function store(Request $request)
     {
+        
         // je valide mes données de formulaire
         $request->validate([
             'nombre_cadres_abeilles' => 'required|min:1|max:2',
@@ -40,8 +41,6 @@ class VisiteController extends Controller
             'essaimage'              => 'required|min:1|max:191',
             'nourrissement'          => 'required|min:1|max:191',
             'traitement'             => 'required|min:1|max:191',
-            'grille_reine'           => 'required|min:1|max:3',
-            'chasse_abeilles'        => 'required|min:1|max:3',
             'grille_propolis'        => 'required|min:1|max:2',
             'date_visite'            => 'required',
             'force'                  => 'required|min:1|max:2',
@@ -50,7 +49,7 @@ class VisiteController extends Controller
 
         //je sauvegarde en BDD dans la table 'visites'
         
-        $visite = Visite::create([
+        Visite::create([
             'nombre_cadres_abeilles' => $request->nombre_cadres_abeilles,
             'nombre_cadres_couvain'  => $request->nombre_cadres_couvain,
             'nombre_cadres_miel'     => $request->nombre_cadres_miel,
@@ -61,14 +60,15 @@ class VisiteController extends Controller
             'essaimage'              => $request->essaimage,
             'nourrissement'          => $request->nourrissement,
             'traitement'             => $request->traitement,
-            'grille_reine'           => $request->grille_reine,
-            'chasse_abeilles'        => $request->chasse_abeilles,
+            'grille_reine'           => $request->grille_reine ? 1 : 0,
+            'chasse_abeilles'        => $request->chasse_abeilles ? 1 : 0,
             'grille_propolis'        => $request->grille_propolis,
             'date_visite'            => $request->date_visite,
             'force'                  => $request->force,
             'commentaire'            => $request->commentaire,
+            'ruche_id'               => $request->ruche_id,
         ]);
-        $visite->ruches()->attach($request->ruche_id);
+        
 
         return back()->with('message', 'Votre visite est bien sauvegardée !');
 

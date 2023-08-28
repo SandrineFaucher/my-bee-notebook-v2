@@ -15,7 +15,7 @@
     @csrf
     <!--passe ruche_id dans le formulaire-->
     <input type="hidden" name="ruche_id" value="{{ $ruche->id }}"> 
-       
+
     <!--Champ date de la visite-->
     <div class="row">
         <div class="col-md-12 ">
@@ -169,7 +169,7 @@
         <div class="col-md_12 mt-3">
             <label class="me-3" for="grille_reine">Grille à reine : </label>
             <div class="form-check form-switch">
-                <input class="form-check-input @error('grille_reine') is invalid @enderror" type="checkbox" role="switch" id="flexSwitchCheckChecked"  name="grille_reine" value="oui">
+                <input class="form-check-input @error('grille_reine') is invalid @enderror" type="checkbox" role="switch" id="flexSwitchCheckChecked"  name="grille_reine" value="1">
             </div> 
         </div>
         @error('grille_reine')
@@ -182,7 +182,7 @@
         <div class="col-md_12 mt-3">
             <label class="me-3" for="chasse_abeilles">Chasse abeilles : </label>
             <div class="form-check form-switch">
-                <input class="form-check-input @error('chasse_abeilles') is invalid @enderror" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked name="chasse_abeilles" value="oui">
+                <input class="form-check-input @error('chasse_abeilles') is invalid @enderror" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked name="chasse_abeilles" value="1">
             </div> 
         </div>
         @error('chasse_abeilles')
