@@ -36,11 +36,11 @@ class Visite extends Model
 
 
     
-    // TABLE MIDDLEWARE
-    // nom de la fonction au pluriel car plusieurs visites sont associées à plusieurs ruches
-    // cardinalité 1,n
-    public function ruches(){
-        return $this->belongsToMany(Ruche::class, 'registre_elevage');
+   
+    // nom de la fonction au au singulier car une visite sont associée à une ruche
+    // cardinalité 1,1
+    public function ruche(){
+        return $this->belongsTo(Ruche::class);
     }
 
 }

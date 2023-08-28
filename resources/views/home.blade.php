@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-center"> Mes ruchers </h1>
 
-    <div class="container-fluid  mt-5 p-2">
+    
         <div class="row d-flex justify-content-between">
 
             <div class="col-md-3 m-4 p-3" id="new-rucher">
@@ -89,24 +89,35 @@
 
             <!--Affichage des ruchers créés-->
             <div class="col-md-8 d-flex justify-content-between flex-wrap m-3" id="square-ruchers">
-                <div class="row">
-                    @foreach ($user->ruchers as $rucher)
-                    <a href="{{route('ruchers.show',$rucher)}}" class="link-underline-light"> 
-                        <div class="col-md-3 m-3 p-3" id="rucher">
-                            
-                            
+                
+                <!--Boucle sur les ruchers du user connecté pour les afficher-->
+                @foreach ($user->ruchers as $rucher)
+                <div class="row mx-auto">
+
+
+                    
+
+                    <!--lien qui cadre le rucher afin d'afficher son détail par la fonction show du controller ruchers-->
+                    <a href="{{route('ruchers.show',$rucher)}}" class="link-underline-light">
+
+                    <!--Conditions pour affichage des badges d'environnement-->
+                        <div class="col-md-3"   text-center" id="rucher">
+                            <div class="col-md-10 ">
+                                <img class= "w-50 h-50 mb-3" src="{{ asset('images/icone-ville-blanc.png') }}" alt="city-icon" id="icone-ville">
+                                <p class="mx-auto">{{ $rucher->nom_rucher }}</p> 
+                            </div>
+
                             
                             
 
-                            <p>{{ $rucher->nom_rucher }}</p>
-                            
+
                             
 
-                            <div class="row">
+                            <div class="row mt-3 mx-auto">
                                 <div class="col-md-5">
                                     <!--icon de modification du rucher-->
                                     <a href="{{ route('ruchers.edit', $rucher) }}">
-                                         <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                         <i class="fa-sharp fa-solid fa-pen-to-square fs-3"></i>
                                     </a>
                                 </div>
 
@@ -116,22 +127,22 @@
                                         @csrf
                                         @method('delete')
 
-                                        <button type="submit" class="btn-delete"><i class="fa-solid fa-circle-xmark"></i>
+                                        <button type="submit" class="btn-delete"><i class="fa-solid fa-circle-xmark fs-3"></i>
                                         </button>
                                     </form>
                                 </div>
 
                             </div>
-                        
                         </div>
                     </a>
+                    </div>
                     @endforeach
-                </div>
+                
             </div>
 
 
 
         </div>
 
-    </div>
+    
 @endsection

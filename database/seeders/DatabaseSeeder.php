@@ -17,11 +17,10 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             AdresseSeeder::class,
-            VisiteSeeder::class,
             RucherSeeder::class,
             RucheSeeder::class,
+            VisiteSeeder::class,         
             RecolteSeeder::class,
-            RegistreElevageSeeder::class,
             RuchesRecoltesSeeder::class,
         ]);
     }

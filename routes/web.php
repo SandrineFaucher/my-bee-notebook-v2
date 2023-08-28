@@ -36,10 +36,9 @@ Route::resource('/ruchers', \App\Http\Controllers\RucherController::class);
 
 //------------------Route correspondant à RucheController------------------------------//
 Route::resource('/ruche', \App\Http\Controllers\RucheController::class);
-//route pour transférer une ruche de rucher//
-Route::get('/transfertruche', [App\Http\Controllers\RucheController::class, 'update'])->name('transfertruche');
 
-
+//------------------Route correspondant à VisiteController-----------------------------//
+Route::resource('/visites', \App\Http\Controllers\VisiteController::class);
 //------------------Route correspondant à PdfController -------------------------------//
 Route::get('/pdf',  [PdfController::class,'index'])->name('pdf');
 

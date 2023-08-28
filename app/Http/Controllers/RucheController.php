@@ -59,9 +59,11 @@ class RucheController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Ruche $ruche)
     {
-        //
+        // je récupère mes ruches ainsi que ses visites associées avec un eager loading
+        $ruche->load('visites');
+        return view('ruche.show', ['ruche'=> $ruche]);
     }
 
     /**

@@ -18,6 +18,7 @@ class VisiteFactory extends Factory
     public function definition(): array
     {
         return [
+            'ruche_id' =>rand(1, Ruche::count()),
             'nombre_cadres_abeilles' =>$this->faker->numberBetween(0,12),
             'nombre_cadres_couvain' =>$this->faker->numberBetween(0,12),
             'nombre_cadres_miel' =>$this->faker->numberBetween(0,12),

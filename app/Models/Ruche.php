@@ -31,11 +31,11 @@ class Ruche extends Model
         return $this->belongsTo(Rucher::class);
     }
 
-    // TABLE INTERMEDIAIRE
+    
     // nom de la fonction au pluriel car une ruche peut être associée à  plusieurs visites
     // cardinalité 0,n
     public function visites(){
-        return $this->belongsToMany(Visite::class, 'registre_elevage');
+        return $this->hasMany(Visite::class);
     }
 
     // nom au pluriel car plusieurs ruches sont associées à plusieurs récoltes

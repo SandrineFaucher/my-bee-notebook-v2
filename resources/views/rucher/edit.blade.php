@@ -2,8 +2,10 @@
 
 
 @section('content')
-<div class="container mx-auto">
-<div class="col-md-5 m-4 p-3 mx-auto" id="new-rucher">
+<div class="row">
+
+
+<div class="col-lg-3 m-4 p-3 mx-auto" id="new-rucher">
     <form action="{{route('ruchers.update', $rucher)}}" method="post">
     @csrf 
     @method('put')
@@ -74,7 +76,7 @@
         </div> 
 
 
-        <!--Créer le rucher/ Valider-->
+        <!--Modifier le rucher/ Valider-->
         <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
             Modifier
         </button>

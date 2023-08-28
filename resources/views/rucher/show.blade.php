@@ -79,7 +79,7 @@
                         </select>
                     </div>
                 </div>
-                @error('espece')
+                @error('provenance')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
 
@@ -124,7 +124,7 @@
 
 <!--Affichage des ruches appartenant au rucher -->
         
-        {{-- <a href="{{route('ruche.show',$ruche)}}"> --}}
+        <a href="{{route('ruche.show',$ruche)}}"> 
             <div class="col-md-2 m-4 p-2" id="ruche">
                 <div class="row">
                 <div class="col-md-5">
@@ -158,7 +158,7 @@
 
         </div>
             </div>
-        {{-- </a> --}}
+        </a> 
       
 @endforeach
 </div>

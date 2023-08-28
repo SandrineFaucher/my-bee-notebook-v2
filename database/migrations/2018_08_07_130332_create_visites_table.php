@@ -31,6 +31,7 @@ return new class extends Migration
             $table->text('commentaire');
             $table->timestamps();
 
+            $table->foreignId('ruche_id')->constrained()->onDelete('cascade');
         });
     }
 
