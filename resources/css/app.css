@@ -108,8 +108,8 @@ h3{
     border-radius: 10px;
     background-color: #243B4A;
     color: white;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    
 }
 #rucher a, i{
     text-decoration: none;
@@ -131,13 +131,20 @@ h1{
 
 
 /* rucher/show.blade.php */
-
 #ruche{
     padding: 20px;
     border-radius: 10px;
-    background-color: #E4ECF1;
-    box-shadow:8px 8px 6px 2px #243B4A;
+    background-color: #243B4A;
+    color: white;
+    width: 200px;
+    height: 350px;
 }
+#ruche a, i{
+    text-decoration: none;
+    color: white;
+}
+
+
 #icone-ruche{
     height: 80px;
 }

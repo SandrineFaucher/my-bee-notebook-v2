@@ -2,10 +2,10 @@
 
 
 @section('content')
-<h1 class="text-center"> Visite de la Ruche </h1>
+<h1 class="text-center"> Visite de la Ruche : {{$ruche->nom_ruche}} - N° {{$ruche->numero}}</h1>
 
-<div class="container-fluid">
-<div class="row">
+<div class="container-fluid mt-5 p-5">
+<div class="row ">
 
 
 <!--Formulaire de visite-->
@@ -235,6 +235,39 @@
 
 </form>
 </div>   
+
+<div class="col-md-5 p-2 ps-4  d-flex flex-nowrap">
+@foreach($ruche->visites as $visite)
+
+<!--Affichage d'une visite-->
+
+<div class="card w-50 h-75 mx-auto" >
+<div class="card-header">
+    <h3> Visite du : {{date('d/m/y', strtotime($visite->date_visite))}}</h3>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cadres d'abeilles : {{$visite->nombre_cadres_abeilles}}</li>
+    <li class="list-group-item">Cadres de couvain : {{$visite->nombre_cadres_couvain}}</li>
+    <li class="list-group-item">Cadres de miel : {{$visite->nombre_cadres_miel}}</li>
+    <li class="list-group-item">Hausses : {{$visite->nombre_hausses}}</li>
+    <li class="list-group-item">Reine vue : {{$visite->reine_vue}}</li>
+    <li class="list-group-item">Cellules royales : {{$visite->cellules_royales}}</li>
+    <li class="list-group-item">Ruche orpheline : {{$visite->ruche_orpheline}}</li>
+    <li class="list-group-item">Essaimage : {{$visite->essaimage}}</li>
+    <li class="list-group-item">Nourrissement : {{$visite->nourrissement}}</li>
+    <li class="list-group-item">Traitements : {{$visite->traitement}}</li>
+    <li class="list-group-item">Grille à reine : {{$visite->grille_reine}}</li>
+    <li class="list-group-item">Chasse abeilles : {{$visite->chasse_abeilles}}</li>
+    <li class="list-group-item">Grilles à propolis : {{$visite->grille_propolis}}</li>
+    <li class="list-group-item">Force de la ruche : {{$visite->force}}</li>
+    <li class="list-group-item">Commentaire : {{$visite->commentaire}}</li>
+    
+  </ul>
+  </div>
+
+@endforeach
+
+</div>
 
 </div>
 </div>

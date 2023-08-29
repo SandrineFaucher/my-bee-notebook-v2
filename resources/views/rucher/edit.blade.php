@@ -38,12 +38,11 @@
             <label for="nom_rucher">Environnement :</label>
             <select class="form-select @error('environnement') is invalid @enderror" name="environnement"
                 aria-label="Default select example" value="{{$rucher->environnement}}">
-                <option value="Bois">Bois</option>
-                <option value="Champs cultivés">Champs cultivés</option>
-                <option value="Abords d'une rivière">Abords d'une rivière</option>
-                <option value="Montagne">Montagne</option>
-                <option value="Champs de tournesol">Champs de tournesol</option>
-                <option value="Champs de colza">Champs de colza</option>
+                <option @if($rucher->environnement == 'Foret') selected @endif value="Foret">Forêt</option>
+                <option @if($rucher->environnement == 'Champs cultivés') selected @endif value="Champs cultivés">Champs cultivés</option>
+                <option @if($rucher->environnement == 'Montagne') selected @endif value="Montagne">Montagne</option>
+                <option @if($rucher->environnement == 'Ville') selected @endif value="Ville">Ville</option>
+                <option @if($rucher->environnement == 'Jardin privé') selected @endif value="Jardin privé">Jardin privé</option>
             </select>
         </div>
         </div>
