@@ -90,17 +90,12 @@
                                 <option value="Abeilles noires">Abeille noire européenne (Apis mellifera mellifera)</option>
                                 <option value="Abeilles hybrides">Abeilles hybridées</option>
                                 <option value="Abeilles italiennes">Abeille italienne (Apis mellifera ligustica)</option>
-                                <option value="Abeilles caucasiennes">Abeille caucasienne (Apis mellifera caucasica)
-                                </option>
-                                <option value="Abeilles carnioliennes">Abeille carniolienne (Apis mellifera carnica)
-                                </option>
-                                <option value="Abeilles africaines">Abeille africaine (Apis mellifera scutellata)</option>
+                                <option value="Abeilles caucasiennes">Abeille caucasienne (Apis mellifera caucasica)</option>
+                                <option value="Abeilles carnioliennes">Abeille carniolienne (Apis mellifera carnica)</option>
                                 <option value="Abeilles grecques">Abeille grecque (Apis mellifera cecropia)</option>
                                 <option value="Abeilles de l'orient">Abeille de l'orient (Apis mellifera syriaca)</option>
                                 <option value="Abeilles maltaises">Abeille maltaise (Apis mellifera ruttneri)</option>
                                 <option value="Abeilles ibériques">Abeille ibérique (Apis mellifera iberiensis)</option>
-                                <option value="Abeilles de l'hymalaya">Abeille de l'hymalaya (Apis mellifera hymalaya)
-                                </option>
                             </select>
                         </div>
                     </div>

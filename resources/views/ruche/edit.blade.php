@@ -2,12 +2,13 @@
 
 
 @section('content')
-    <div class="container mx-auto">
-        <div class="col-md-3 m-4 p-3" id="new-ruche">
+    <div class="container">
+        <div class="col-md-6 mx-auto m-4 p-3" id="new-ruche">
             <form action="{{ route('ruche.update', $ruche) }}" method="post">
                 @csrf
                 @method('put')
-
+                <!--passe rucher_id dans le formulaire-->
+                <input type="hidden" name="rucher_id" value="{{ $rucher->id }}">
 
                 <!--Modification d'une ruche-->
                 <div class="row">
@@ -76,12 +77,11 @@
                                 <option @if($ruche->espece == 'Abeilles italiennes') selected @endif value="Abeilles italiennes">Abeille italienne (Apis mellifera ligustica)</option>
                                 <option @if($ruche->espece == 'Abeilles caucasiennes') selected @endif value="Abeilles caucasiennes">Abeille caucasienne (Apis mellifera caucasica)</option>
                                 <option @if($ruche->espece == 'Abeilles carnioliennes') selected @endif value="Abeilles carnioliennes">Abeille carniolienne (Apis mellifera carnica)</option>
-                                <option @if($ruche->espece == 'Abeilles africaines') selected @endif value="Abeilles africaines">Abeille africaine (Apis mellifera scutellata)</option>
                                 <option @if($ruche->espece == 'Abeilles grecques') selected @endif value="Abeilles grecques">Abeille grecque (Apis mellifera cecropia)</option>
                                 <option @if($ruche->espece == 'Abeilles de l\'orient') selected @endif value="Abeilles de l'orient">Abeille de l'orient (Apis mellifera syriaca)</option>
                                 <option @if($ruche->espece == 'Abeilles maltaises') selected @endif value="Abeilles maltaises">Abeille maltaise (Apis mellifera ruttneri)</option>
                                 <option @if($ruche->espece == 'Abeilles ibériques') selected @endif value="Abeilles ibériques">Abeille ibérique (Apis mellifera iberiensis)</option>
-                                <option @if($ruche->espece == 'Abeilles de l\'hymalaya') selected @endif value="Abeilles de l'hymalaya">Abeille de l'hymalaya (Apis mellifera hymalaya)</option>
+                                
                             </select>
                     </div>
                 </div>

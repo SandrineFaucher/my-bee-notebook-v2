@@ -49,6 +49,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -69,7 +70,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end text-center drop-down-square me-5" aria-labelledby="navbarDropdown">
-                                    <a href="{{route('users.edit', $user = Auth::user() )}}" class="text-white link-offset-2 link-underline link-underline-opacity-0 fs-4">
+                                    <a class="dropdown-item text-white fs-4" aria-current="recoltes"
+                                    href="{{ route('recoltes.index') }}">Mes récoltes </a>
+
+                                    <a href="{{route('users.edit', $user = Auth::user() )}}" class="dropdown-item text-white fs-4">
                                         Mon compte
                                     </a>
                                     <a class="dropdown-item text-white fs-4" href="{{ route('logout') }}"
@@ -110,4 +114,19 @@
         </main>
     </div>
 </body>
+
+<footer>
+<div class="row">
+ <div class="col-md-12 text-center" id="footer">
+    <p class="pt-5 text-center">Contacter l'administrateur du site </p>
+    <div class="row ">
+    <div class="col-md-12 d-flex flex-nowrap">
+        <i class="fa-regular fa-envelope my-auto m-3"></i> 
+        <p class="my-auto">contact@mybeenotebook.fr</p>
+    </div>
+    </div>
+
+ </div>
+</div>
+</footer>
 </html>

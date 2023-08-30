@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Ruche;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Recolte>
@@ -18,6 +18,7 @@ class RecolteFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => rand(1, User::count()),
             'miel' => $this->faker->randomFloat(2, 0, 50),
             'pollen' =>$this->faker->randomFloat(2, 0, 5),
             'propolis' =>$this->faker->randomFloat(2, 0, 5),

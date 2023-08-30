@@ -20,6 +20,7 @@ class Recolte extends Model
         'pollen',
         'propolis',
         'gelee_royale',
+        'user_id'
     ];
 
 
@@ -29,4 +30,10 @@ class Recolte extends Model
     public function ruches(){
         return $this->belongsToMany(Ruche::class, 'ruches_recoltes');
     }
+
+    // nom au singulier car un seul user associé à la récolte
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+ 
 }

@@ -77,6 +77,11 @@ h3{
 .drop-down-square{
     background-color: #243B4A;
 }
+#footer{
+    height: 20vh;
+    background-color: #243B4A;
+    color: white;
+}
 
 /* home.blade.php (+ formulaires de rucher.show et ruche.show)*/
 #home{
@@ -147,4 +152,11 @@ h1{
 
 #icone-ruche{
     height: 80px;
+}
+
+/* ruche/show.blade.php */
+
+/*condition iconique reine_vue*/
+.yes, .no{
+    color: #243B4A;
 }

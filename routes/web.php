@@ -39,6 +39,7 @@ Route::resource('/ruche', \App\Http\Controllers\RucheController::class);
 
 //------------------Route correspondant à VisiteController-----------------------------//
 Route::resource('/visites', \App\Http\Controllers\VisiteController::class);
+
 //------------------Route correspondant à PdfController -------------------------------//
 Route::get('/pdf',  [PdfController::class,'index'])->name('pdf');
 
