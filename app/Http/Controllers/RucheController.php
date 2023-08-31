@@ -104,7 +104,7 @@ class RucheController extends Controller
             'provenance'    => $request->provenance,
             'lignee_reine'  => $request->lignee_reine,
             'nombre_cadres' => $request->nombre_cadres,
-            'rucher_id'     => $request->rucher_id,
+            'rucher_id'     => $request->rucher_id
         ]);
         return redirect()->route('ruchers.show', $ruche->rucher_id)->with('message', 'Votre ruche a bien été modifiée !');
     }

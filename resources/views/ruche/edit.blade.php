@@ -7,9 +7,7 @@
             <form action="{{ route('ruche.update', $ruche) }}" method="post">
                 @csrf
                 @method('put')
-                <!--passe rucher_id dans le formulaire-->
-                <input type="hidden" name="rucher_id" value="{{ $rucher->id }}">
-
+                
                 <!--Modification d'une ruche-->
                 <div class="row">
                     <div class="col-md-12">

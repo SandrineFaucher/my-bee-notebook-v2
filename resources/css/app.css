@@ -155,8 +155,15 @@ h1{
 }
 
 /* ruche/show.blade.php */
-
 /*condition iconique reine_vue*/
 .yes, .no{
     color: #243B4A;
+}
+
+/*recolte/index */
+#recolte{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #E2B415;
+    box-shadow:8px 8px 6px 2px #243B4A;
 }

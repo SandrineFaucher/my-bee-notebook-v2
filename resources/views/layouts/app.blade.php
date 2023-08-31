@@ -116,17 +116,14 @@
 </body>
 
 <footer>
-<div class="row">
- <div class="col-md-12 text-center" id="footer">
-    <p class="pt-5 text-center">Contacter l'administrateur du site </p>
-    <div class="row ">
-    <div class="col-md-12 d-flex flex-nowrap">
-        <i class="fa-regular fa-envelope my-auto m-3"></i> 
-        <p class="my-auto">contact@mybeenotebook.fr</p>
-    </div>
-    </div>
 
+ <div class="row" id="footer">
+    <div class="col-md-3 mx-auto text-center">
+    <i class="fa-regular fa-envelope my-auto fs-3 mt-5"> </i> 
+    <p>contact@mybeenotebook.fr</p>
+    </div>
  </div>
-</div>
+
 </footer>
+
 </html>

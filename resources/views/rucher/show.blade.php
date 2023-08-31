@@ -7,6 +7,8 @@
     <div class="container-fluid  mt-5 p-2">
         <div class="row d-flex justify-content-between">
             <div class="col-md-3 m-4 p-3" id="new-ruche">
+
+                <!--Formulaire d'ajout d'une ruche-->
                 <form action="{{ route('ruche.store') }}" method="post">
                     @csrf
                     <!--passe rucher_id dans le formulaire-->
