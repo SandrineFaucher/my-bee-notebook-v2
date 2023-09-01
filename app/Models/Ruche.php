@@ -23,7 +23,8 @@ class Ruche extends Model
         'lignee_reine',
         'nombre_cadres',
     ];
-
+    // Afin de récupérer la relation récoltes avec ruches 
+    protected $with = ['recoltes','rucher'];
 
     // nom de la fonction au singulier car une ruche est associé à un rucher
     // cardinalité 1,1

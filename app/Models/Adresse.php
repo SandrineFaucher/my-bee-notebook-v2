@@ -29,7 +29,7 @@ class Adresse extends Model
         return $this->belongsTo(User::class);
     }
 
-    // nom au singulier car un rucher n'a qu'une adresse
+    // nom au singulier car un rucher n'a qu'une adresse 
     public function rucher()
     {
         return $this->hasOne(Rucher::class);

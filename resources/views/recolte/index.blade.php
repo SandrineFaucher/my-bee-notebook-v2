@@ -63,6 +63,22 @@
         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror
 
+      <!--Affichage des ruches à cocher-->
+      <div class="row">
+        <div class="col-md-12">
+          @foreach ($ruches as $ruche)
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="flexCheckDefault"
+                  name="rucheId{{ $ruche->id }}">
+              <label class="form-check-label" for="flexCheckDefault">
+                  Ruche n° :{{ $ruche->numero }}
+              </label>
+          </div>
+          @endforeach
+        </div>
+      </div>
+
+
         <!--Valider la récolte-->
         <div class="col-md-12 text-center mt-4">
           <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center ">
@@ -131,6 +147,11 @@
 @endforeach
 </div>
 
+</div>
+
+<div class="row">
+<div class="col-md-6 mx-auto">
+  <canvas id="barCanvas" aria-label="chart" role="img"></canvas>
 </div>
 </div>
 

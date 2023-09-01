@@ -78,6 +78,17 @@
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
 
+                    <!--Numero siret-->
+                    <div class="col-md-5 mt-2 mb-3">
+                        <label for="inputSiret" class="form-label">N° SIRET </label>
+                        <input type="text" class="form-control @error('siret') is invalid @enderror" id="inputSiret"
+                            name="siret" value="{{ $adressenapi->siret }}">
+                    </div>
+                    @error('siret')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
+
+
                     <!--bouton de modification -->
                     <div class="text-center">
                         <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
@@ -133,6 +144,16 @@
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
 
+                    <!--Numero siret-->
+                    <div class="col-md-5 mt-2 mb-3">
+                        <label for="inputSiret" class="form-label">N° SIRET </label>
+                        <input type="text" class="form-control @error('siret') is invalid @enderror" id="inputSiret"
+                            name="siret">
+                    </div>
+                    @error('siret')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
+                    
                     <!--bouton de validation -->
                     <div class="text-center">
                         <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">

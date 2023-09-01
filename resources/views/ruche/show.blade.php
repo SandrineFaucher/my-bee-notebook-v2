@@ -168,6 +168,17 @@
                         </div>
                     </div>
 
+                    <!--Détail du traitement-->
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <label for="commentaire">Détail du traitement :</label>
+                            <textarea class="form-control @error('detail_traitement') is invalid @enderror " name="detail_traitement" rows="5"></textarea>
+                        </div>
+                        @error('detail_traitement')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+
                     <!--Grille à reine-->
                     <div class="row">
                         <div class="col-md_12 mt-3">
@@ -291,6 +302,7 @@
                             <li class="list-group-item">Essaimage : {{ $visite->essaimage }}</li>
                             <li class="list-group-item">Nourrissement : {{ $visite->nourrissement }}</li>
                             <li class="list-group-item">Traitements : {{ $visite->traitement }}</li>
+                            <li class="list-group-item">Détails du traitement : {{ $visite->detail_traitement }}</li>
                             <li class="list-group-item">Grille à reine : {{ $visite->grille_reine }}</li>
                             <li class="list-group-item">Chasse abeilles : {{ $visite->chasse_abeilles }}</li>
                             <li class="list-group-item">Grilles à propolis : {{ $visite->grille_propolis }}</li>

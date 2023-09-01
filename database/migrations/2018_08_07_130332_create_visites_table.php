@@ -23,12 +23,13 @@ return new class extends Migration
             $table->string('essaimage', 191);
             $table->string('nourrissement', 191);
             $table->string('traitement', 191);
+            $table->text('detail_traitement', 1000)->nullable();
             $table->boolean('grille_reine');
             $table->boolean('chasse_abeilles');
             $table->integer('grille_propolis');
             $table->date('date_visite');
             $table->integer('force');
-            $table->text('commentaire');
+            $table->text('commentaire', 1000)->nullable();
             $table->timestamps();
 
             $table->foreignId('ruche_id')->constrained()->onDelete('cascade');

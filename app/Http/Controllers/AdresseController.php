@@ -24,6 +24,7 @@ class AdresseController extends Controller
         'ville'       => 'required|min:3|max:191',
         'code_postal' => 'required|max:5',
         'napi'        => 'required|max:8',
+        'siret'       => 'nullable|max:14'
         ]);
 
         //je sauvegarde l'adresse 
@@ -32,6 +33,7 @@ class AdresseController extends Controller
         'ville'       => $request->ville,
         'code_postal' => $request->code_postal,
         'napi'        => $request->napi,
+        'siret'       => $request->siret,
         'user_id'     => Auth::user()->id, // me permet d'accéder et de créer l'adresse pour le 
                                           // user connecté
     
@@ -69,6 +71,7 @@ class AdresseController extends Controller
             'ville'       => 'required|min:3|max:191',
             'code_postal' => 'required|max:5',
             'napi'        => 'required|max:8',
+            'siret'       => 'nullable|max:14'
             ]);
     
             //je sauvegarde l'adresse 
@@ -77,6 +80,7 @@ class AdresseController extends Controller
             'ville'       => $request->ville,
             'code_postal' => $request->code_postal,
             'napi'        => $request->napi,
+            'siret'       => $request->siret
             
             ]);
             return redirect()->route('users.edit', Auth::user())->with('message', 'Votre adresse a bien été modifiée !');

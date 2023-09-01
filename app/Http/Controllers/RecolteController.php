@@ -6,6 +6,7 @@ use App\Models\Recolte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Ruche;
 
 
 class RecolteController extends Controller
@@ -18,7 +19,18 @@ class RecolteController extends Controller
         // je récupère les données de récoltes du user connecté pour les afficher 
         $user= User::find(Auth::user()->id);
         $user->load('recoltes');
-        return view('recolte/index', ['user' => $user]);
+
+        //Charger les ruches du User connecté 
+        $ruches = Ruche::whereHas('rucher', function($query){
+            return $query->where('user_id', Auth::user()->id);
+        })
+        ->get();
+       
+        return view('recolte/index', [
+              'user' => $user,
+              'ruches' => $ruches
+            ]);
+
     }
 
     /**
@@ -44,13 +56,21 @@ class RecolteController extends Controller
 
     
         //je sauvegarde en BDD les entrées du formulaire ajout d'une récolte
-        Recolte::create([
+        $recolte = Recolte::create([
             'miel'              => $request->miel,
             'pollen'            => $request->pollen,
             'gelee_royale'      => $request->gelee_royale,
             'propolis'          => $request->propolis,
             'user_id'           => $request->user_id,
         ]);
+        
+        for($i = 1; $i <= Ruche::count(); $i ++){
+            //je vérifie avec une condition les checkbox ruches cochées
+            if($request->input ('rucheId'.$i)){
+                $recolte->ruches()->attach($i);
+            }
+        }
+
         return back()->with('message', 'Votre récolte est bien enregistrée !');
     }
 

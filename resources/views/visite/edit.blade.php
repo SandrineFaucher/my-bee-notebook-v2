@@ -81,8 +81,8 @@
                 <label for="reine_vue">Reine vue :</label>
                 <select class="form-select @error('reine_vue') is invalid @enderror" name="reine_vue"
                     aria-label="Default select example" value="{{$visite->reine_vue}}">
-                    <option value="Oui"> Oui </option>
-                    <option value="Non"> Non </option>
+                    <option @if($visite->reine_vue == 'Oui') selected @endif value="Oui"> Oui </option>
+                    <option @if($visite->reine_vue == 'Non') selected @endif value="Non"> Non </option>
                 </select>
                 @error('reine_vue')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -109,9 +109,9 @@
                 <select class="form-select @error('reine_vue') is invalid @enderror" name="ruche_orpheline"
                     aria-label="Default select example" value="{{$visite->ruche_orpheline}}">
                     <option value=""></option>
-                    <option value="Oui"> Oui </option>
-                    <option value="Non"> Non </option>
-                    <option value="A surveiller"> A surveiller </option>
+                    <option @if($visite->ruche_orpheline == 'Oui') selected @endif value="Oui"> Oui </option>
+                    <option @if($visite->ruche_orpheline == 'Non') selected @endif value="Non"> Non </option>
+                    <option @if($visite->ruche_orpheline == 'A surveiller') selected @endif value="A surveiller"> A surveiller </option>
                 </select>
                 @error('ruche_orpheline')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -125,8 +125,8 @@
                 <label for="reine_vue">Essaimage :</label>
                 <select class="form-select @error('reine_vue') is invalid @enderror" name="essaimage"
                     aria-label="Default select example" value="{{$visite->essaimage}}">
-                    <option value="A essaimé"> A essaimé </option>
-                    <option value="Peut essaimer"> Risque élevé d'essaimage </option>
+                    <option @if($visite->essaimage == 'A essaimé') selected @endif value="A essaimé"> A essaimé </option>
+                    <option @if($visite->essaimage == 'Peut essaimer') selected @endif value="Peut essaimer"> Risque élevé d'essaimage </option>
                 </select>
                 @error('essaimage')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -140,8 +140,8 @@
                 <label for="reine_vue">Nourrissement :</label>
                 <select class="form-select @error('nourrissement') is invalid @enderror" name="nourrissement"
                     aria-label="Default select example" value="{{$visite->nourrissement}}">
-                    <option value="sirop de glucose">Sirop de glucose </option>
-                    <option value="candy"> Pain de candy </option>
+                    <option @if($visite->nourrissement == 'sirop de glucose') selected @endif value="sirop de glucose">Sirop de glucose </option>
+                    <option @if($visite->nourrissement == 'candy') selected @endif value="pain de candy"> Pain de candy </option>
                 </select>
                 @error('nourrissement')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -155,14 +155,26 @@
                 <label for="reine_vue">Traitement :</label>
                 <select class="form-select @error('traitement') is invalid @enderror" name="traitement"
                     aria-label="Default select example" value="{{$visite->traitement}}">
-                    <option value="Bande anti-varoa">Bande anti-varoa </option>
-                    <option value="Acide oxalyque"> Acide oxalique </option>
+                    <option @if($visite->traitement == 'Bande anti-varoa') selected @endif value="Bande anti-varoa">Bande anti-varoa </option>
+                    <option @if($visite->traitement == 'Acide oxalyque') selected @endif value="Acide oxalyque"> Acide oxalique </option>
                 </select>
                 @error('traitement')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
             </div>
         </div>
+
+        <!--Détail du traitement-->
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <label for="commentaire">Détail du traitement :</label>
+                <textarea class="form-control @error('detail_traitement') is invalid @enderror " name="detail_traitement" rows="5"></textarea>
+            </div>
+            @error('detail_traitement')
+                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+
 
         <!--Grille à reine-->
         <div class="row">

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('recoltes', function (Blueprint $table) {
             $table->id();
-            $table->float('miel');
-            $table->float('pollen');
-            $table->float('propolis');
-            $table->float('gelee_royale');
+            $table->float('miel')->nullable();
+            $table->float('pollen')->nullable();
+            $table->float('propolis')->nullable();
+            $table->float('gelee_royale')->nullable();
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

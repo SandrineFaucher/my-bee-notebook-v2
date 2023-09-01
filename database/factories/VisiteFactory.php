@@ -29,6 +29,7 @@ class VisiteFactory extends Factory
             'essaimage' =>$this->faker->randomElement(['pas de risque', 'risque élevé', 'a essaimé']),
             'nourrissement' =>$this->faker->randomElement(['candi', 'sirop', 'miel']),
             'traitement' =>$this->faker->randomElement(['bandelette anti-varoa', 'acide oxalique']),
+            'detail_traitement' =>$this->faker->paragraph(),
             'grille_reine' =>$this->faker->boolean(),
             'chasse_abeilles' =>$this->faker->boolean(),
             'grille_propolis' =>$this->faker->numberBetween(0,5),

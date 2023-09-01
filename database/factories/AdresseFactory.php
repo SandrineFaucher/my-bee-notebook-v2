@@ -23,6 +23,7 @@ class AdresseFactory extends Factory
             'ville' => $this->faker->city(),
             'user_id' =>rand(1, User::count()),
             'napi' => $this->faker->regexify('[A][0-9]{7}'),
+            'siret' => $this->faker->regexify('[0-9]{14}'),
         ];
     }
 }
