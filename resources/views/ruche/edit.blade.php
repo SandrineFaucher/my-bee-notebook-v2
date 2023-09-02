@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <div class="col-md-6 mx-auto m-4 p-3" id="new-ruche">
+        <div class="col-md-6 mx-auto m-4 p-3 my-auto " id="new-ruche">
             <form action="{{ route('ruche.update', $ruche) }}" method="post">
                 @csrf
                 @method('put')
@@ -11,7 +11,7 @@
                 <!--Modification d'une ruche-->
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="fs-3 text-center">Modifier la ruche </p>
+                        <h3 class="fs-3 text-center">Modifier la ruche </h3>
                     </div>
                 </div>
 
@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label for="nom_ruche">Nom de la ruche :</label>
-                        <select class="form-select @error('nom_ruche') is invalid @enderror" name="nom_ruche"
+                        <select class="form-select  word-break: break-word @error('nom_ruche') is invalid @enderror" name="nom_ruche"
                             aria-label="Default select example">
                             <option value=""></option>
                             <option @if($ruche->nom_ruche == 'Ruche Dadant') selected @endif value="Ruche Dadant">Ruche Dadant</option>

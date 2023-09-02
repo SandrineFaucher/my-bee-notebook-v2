@@ -15,7 +15,7 @@
         <!--Ajout d'un rucher-->
         <div class="row">
         <div class="col-md-12 text-center">
-            <p class="fs-3">Modifier le rucher </p>
+            <h3 class="fs-3">Modifier le rucher </h3>
         </div>
         </div>
 
@@ -24,7 +24,7 @@
         <div class="row">
         <div class="col-md-12">
             <label for="nom_rucher">Nom du rucher :</label>
-            <input type="text" class="form-control @error('nom_rucher') is invalid @enderror "
+            <input type="text" class="form-control word-break: break-word @error('nom_rucher') is invalid @enderror "
                 name="nom_rucher" value="{{$rucher->nom_rucher}}"/>
         </div>
         </div>

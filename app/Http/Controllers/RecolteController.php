@@ -64,6 +64,7 @@ class RecolteController extends Controller
             'user_id'           => $request->user_id,
         ]);
         
+        //j'attache les ruches appartenant à une récolte
         for($i = 1; $i <= Ruche::count(); $i ++){
             //je vérifie avec une condition les checkbox ruches cochées
             if($request->input ('rucheId'.$i)){

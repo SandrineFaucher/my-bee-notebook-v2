@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label for="nom_rucher">Nom du rucher :</label>
-                            <input type="text" class="form-control @error('nom_rucher') is invalid @enderror "
+                            <input type="text" class="form-control word-break: break-word @error('nom_rucher') is invalid @enderror "
                                 name="nom_rucher" value="Nom court" />
                         </div>
                     </div>
@@ -88,18 +88,18 @@
             </div>
 
             <!--Affichage des ruchers créés-->
-            <div class="col-md-8 d-flex justify-content-between flex-wrap m-3" id="square-ruchers">
+            <div class="col-md-8 d-flex justify-content-center flex-wrap m-3" id="square-ruchers">
                 
                 <!--Boucle sur les ruchers du user connecté pour les afficher-->
                 @foreach ($user->ruchers as $rucher)
-                <div class="row mx-auto ">
+                <div class="row mx-auto my-auto">
 
                     <!--lien qui cadre le rucher afin d'afficher son détail par la fonction show du controller ruchers-->
                     <a href="{{route('ruchers.show',$rucher)}}" class="link-underline-light">
 
                     <!--Conditions pour affichage des badges d'environnement-->
-                        <div class="col-md-3 badge "   text-center" id="rucher">
-                            <div class="col-md-10 text-center ">
+                        <div class="col-md-3 badge text-center mt-3" id="rucher">
+                            <div class="col-md-10 mx-auto ">
                                 @if($rucher->environnement == 'Ville')
                                 <img class= "w-50 h-50 mb-3" src="{{ asset('images/icone-ville-blanc.png') }}" alt="city-icon">
                                 @elseif($rucher->environnement == 'Foret')
@@ -119,16 +119,16 @@
                             </div>
                           
                             <!--Affichage des icones de modification et de suppression-->
-                            <div class="row mt-4 mx-auto ">
-                                <div class="d-flex flex-nowrap">
-                                <div class="col-md-5 text-center pe-2">
+                            <div class="row mt-4 text-center ">
+                                <div class="d-flex flex-nowrap ">
+                                <div class="col-md-5 mx-auto pe-2">
                                     <!--icon de modification du rucher-->
                                     <a href="{{ route('ruchers.edit', $rucher) }}">
                                          <i class="fa-sharp fa-solid fa-pen-to-square fs-5"></i>
                                     </a>
                                 </div>
 
-                                <div class="col-md-5 text-center ps-3 ">
+                                <div class="col-md-5 mx-auto ps-3 ">
                                     <!--icon de suppression du rucher-->
                                     <form action="{{ route('ruchers.destroy', $rucher) }}" method="post">
                                         @csrf

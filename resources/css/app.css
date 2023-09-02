@@ -141,6 +141,7 @@ h1{
     border-radius: 10px;
     background-color: #243B4A;
     color: white;
+    font-size: large;
     width: 200px;
     height: 350px;
 }
@@ -158,6 +159,10 @@ h1{
 /*condition iconique reine_vue*/
 .yes, .no{
     color: #243B4A;
+}
+.img-ruche{
+  
+  
 }
 
 /*recolte/index */

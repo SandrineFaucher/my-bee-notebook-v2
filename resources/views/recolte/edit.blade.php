@@ -59,6 +59,22 @@
             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
             @enderror
     
+            <!--Récupérer les cases déjà cochées lors de la création-->
+            <div class="row">
+              <div class="col-md-12">
+                @foreach($ruches as $ruche)
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="rucheId{{$ruche->id}}" value="{{$ruche->id}}" id="ruche{{$ruche->id}}"
+                    @if($ruche->recolte()->where('recolte_id', $recolte->id)->exists()) checked @endif >
+                    <label class="form-check-label" for="flexCheckDefault" >
+                       {{$ruche->numero}}
+                    </label>
+                </div>
+                @endforeach
+              </div>
+            </div>
+
+
             <!--Valider la récolte-->
             <div class="col-md-12 text-center mt-4">
               <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center ">

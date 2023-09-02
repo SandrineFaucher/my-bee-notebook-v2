@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label for="nom_ruche">Nom de la ruche :</label>
-                            <select class="form-select @error('nom_ruche') is invalid @enderror" name="nom_ruche"
+                            <select class="form-select word-break: break-word @error('nom_ruche') is invalid @enderror" name="nom_ruche"
                                 aria-label="Default select example">
                                 <option value=""></option>
                                 <option value="Ruche Dadant">Ruche Dadant</option>
@@ -150,22 +150,22 @@
             <div class="col-md-8 d-flex justify-content-center flex-wrap" id="square-ruches">
                 @foreach ($rucher->ruches as $ruche)
                     <!--Affichage des ruches appartenant au rucher -->
-
+                    <div class="row mx-auto my-auto">
                     <a href="{{ route('ruche.show', $ruche) }}">
-                        <div class="col-md-2 m-1 badge fs-6" id="ruche">
-                            <div class="row text-center">
-                                <div class="col-md-12 ">
-                                    <img src="{{ asset('images/icone-ruche-charbon.png') }}" alt="ruche"
+                        <div class="col-md-3 mt-3 text-center" id="ruche">
+                            
+                                <div class="col-md-12 badge">
+                                    <img src="{{ asset('images/ruche-blanche.png') }}" class="img-ruche mb-2" alt="ruche"
                                         id="icone-ruche">
-                                    <p>{{$ruche->nom_ruche }}</p>
-                                    <p>{{$ruche->nombre_cadres }} cadres </p>
-                                    <p>N° : {{$ruche->numero}}</p>
-                                    <p>{{$ruche->espece }}</p>
-                                    <p>{{$ruche->provenance}}</p>
-                                    <p>{{$ruche->lignee_reine}}</p>
+                                    <p class="word-break: break-word">{{$ruche->nom_ruche }}</p>
+                                    <p class="word-break: break-word">{{$ruche->nombre_cadres }} cadres </p>
+                                    <p class="word-break: break-word">N° : {{$ruche->numero}}</p>
+                                    <p class="word-break: break-word">{{$ruche->espece }}</p>
+                                    <p class="word-break: break-word">{{$ruche->provenance}}</p>
+                                    <p class="word-break: break-word">{{$ruche->lignee_reine}}</p>
                                     
                                 </div>
-                            </div>
+                          
 
 
                             <!--Affichage des icones de modification et de suppression-->
@@ -192,6 +192,7 @@
                         </div>
                         </div>
                     </a>
+                </div>
                 @endforeach
             </div>
 
