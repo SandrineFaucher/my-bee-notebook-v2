@@ -41,13 +41,13 @@ class VisiteController extends Controller
             'cellules_royales'       => 'required|min:1|max:2',
             'ruche_orpheline'        => 'required|min:1|max:20',
             'essaimage'              => 'required|min:1|max:191',
-            'nourrissement'          => 'required|min:1|max:191',
-            'traitement'             => 'required|min:1|max:191',
+            'nourrissement'          => 'nullable|min:1|max:191',
+            'traitement'             => 'nullable|min:1|max:191',
             'detail_traitement'      => 'nullable|min:1|max:1000',
             'grille_propolis'        => 'required|min:1|max:2',
             'date_visite'            => 'required',
             'force'                  => 'required|min:1|max:2',
-            'commentaire'            => 'required|min:3|max:1000',
+            'commentaire'            => 'nullable|min:3|max:1000',
         ]);
 
         //je sauvegarde en BDD dans la table 'visites'

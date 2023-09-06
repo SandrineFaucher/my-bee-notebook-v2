@@ -21,12 +21,12 @@ return new class extends Migration
             $table->integer('cellules_royales');
             $table->string('ruche_orpheline', 191);
             $table->string('essaimage', 191);
-            $table->string('nourrissement', 191);
-            $table->string('traitement', 191);
+            $table->string('nourrissement', 191)->nullable();
+            $table->string('traitement', 191)->nullable();
             $table->text('detail_traitement', 1000)->nullable();
             $table->boolean('grille_reine');
             $table->boolean('chasse_abeilles');
-            $table->integer('grille_propolis');
+            $table->boolean('grille_propolis');
             $table->date('date_visite');
             $table->integer('force');
             $table->text('commentaire', 1000)->nullable();

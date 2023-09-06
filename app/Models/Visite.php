@@ -26,6 +26,7 @@ class Visite extends Model
         'essaimage',
         'nourrissement',
         'traitement',
+        'detail_traitement',
         'grille_reine',
         'chasse_abeilles',
         'grille_propolis',
