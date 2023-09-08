@@ -94,8 +94,6 @@
 @foreach($user->recoltes as $recolte)
 
 
-
-
 <table class="table">
     <thead>
       <tr>
@@ -141,18 +139,51 @@
       </div>
   </div>
 </div>
-
-
   </div>
+
+  
+
 @endforeach
-</div>
-
-</div>
-
+<!--CONSTRUCTION DU GRAPHIQUE AVEC CHART.JS-->
 <div class="row">
-<div class="col-md-6 mx-auto">
-  <canvas id="barCanvas" aria-label="chart" role="img"></canvas>
+  <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
+<div style="width: 800px;">
+  <canvas id="barCanvas" role="img">
+    <p>Graphique des récoltes</p>
+  </canvas></div>
 </div>
+
+
+<script>
+const barCanvas= document.getElementById("barCanvas");
+
+const barChart = new Chart(barCanvas, {
+type:"bar",
+data:{
+    labels : ["Miel","Pollen" ,"Gelée royale" , "Propolis" ],
+    datasets :[{
+        data : [100,2,2,3],
+        backgroundColor :['yellow', 'orange', 'pink', 'brown']
+    }]
+},
+options:{
+    scales : {
+        y:{
+            suggestedMax: 200,
+            ticks:{
+                font:{
+                    size:12
+                }
+            }
+        }
+    }
+}
+})
+</script> 
+ 
+
+</div>
+
 </div>
 
 @endsection

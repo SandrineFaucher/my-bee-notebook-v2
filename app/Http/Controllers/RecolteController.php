@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Ruche;
 
 
+
 class RecolteController extends Controller
 {
     /**
@@ -88,11 +89,19 @@ class RecolteController extends Controller
      */
     public function edit(Recolte $recolte)
     {
-       
-        $user = Auth::user('recoltes');
+        // je récupère les données de récoltes du user connecté pour les afficher 
+        $user= User::find(Auth::user()->id);
+        
+        //Charger les ruches du User connecté 
+        $ruches = Ruche::whereHas('rucher', function($query){
+            return $query->where('user_id', Auth::user()->id);
+        })
+        ->get();
+     
         return view('recolte/edit', [
             'recolte' => $recolte,
             'user' => $user,
+            'ruches' => $ruches
         ]);
     }
 

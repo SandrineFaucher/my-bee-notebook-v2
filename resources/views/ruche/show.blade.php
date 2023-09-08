@@ -212,11 +212,14 @@
                     <!--Grille propolis-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="grille_propolis">Grilles à propolis :</label>
-                            <input type="number" class="form-control @error('grille_propolis') is invalid @enderror "
-                                name="grille_propolis" />
+                            <label class="me-3" for="grille_propolis">Grille à propolis : </label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input @error('grille_propolis') is invalid @enderror"
+                                    type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
+                                    name="grille_propolis" value="1">
+                            </div>
                         </div>
-                        @error('cellules_royales')
+                        @error('grille_propolis')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
@@ -224,9 +227,9 @@
                     <!--Force-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="force">Force de la ruche :</label>
-                            <input type="range" class=" @error('force') is invalid @enderror " name="force"
-                                min="0" max="10" />
+                            <label for="force">Force de la ruche de 1 à 10 :</label>
+                            <input type="range" class="form-range @error('force') is invalid @enderror " name="force"
+                                min="1" max="10" />
                         </div>
                         @error('force')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -252,12 +255,12 @@
                 </form>
             </div>
 
-            <div class="col-md-5 p-2 ps-4  d-flex flex-nowrap">
+            <div class="col-md-8 p-2 ps-4  d-flex flex-nowrap">
                 @foreach ($ruche->visites as $visite)
                     <!--Affichage d'une visite-->
 
-                    <div class="card w-50 h-75 mx-auto">
-                        <div class="card-header">
+                    <div class="card w-50 h-75 mx-auto ">
+                        <div class="card-header ">
                             <h3>
                                 Visite du : {{ date('d/m/y', strtotime($visite->date_visite)) }}
 

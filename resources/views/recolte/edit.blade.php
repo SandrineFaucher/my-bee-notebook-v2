@@ -65,7 +65,7 @@
                 @foreach($ruches as $ruche)
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="rucheId{{$ruche->id}}" value="{{$ruche->id}}" id="ruche{{$ruche->id}}"
-                    @if($ruche->recolte()->where('recolte_id', $recolte->id)->exists()) checked @endif >
+                    @if($ruche->recoltes()->where('recolte_id', $recolte->id)->exists()) checked @endif >
                     <label class="form-check-label" for="flexCheckDefault" >
                        {{$ruche->numero}}
                     </label>
