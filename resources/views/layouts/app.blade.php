@@ -37,7 +37,7 @@
 
                 <a class="navbar-brand" href="{{ url('home') }}">
                     <div class="logo d-flex ml-0">
-                        <img src="{{ asset('images/logo-2-my-bee-notebook.png') }}" alt="logo-du-site" class="w-25">
+                        <img id="logo" src="{{ asset('images/logo-2-my-bee-notebook.png') }}" alt="logo-du-site">
                         <p class="my-auto fs-3">My-Bee-Notebook</p>
                     </div>
                 </a>
@@ -83,12 +83,22 @@
                                 <div class="dropdown-menu dropdown-menu-end text-center drop-down-square me-5"
                                     aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item text-white fs-4" aria-current="recoltes"
-                                        href="{{ route('recoltes.index') }}">Mes récoltes </a>
+                                        href="{{ route('recoltes.index') }}">
+                                        Mes récoltes 
+                                    </a>
 
                                     <a href="{{ route('users.edit', $user = Auth::user()) }}"
                                         class="dropdown-item text-white fs-4">
                                         Mon compte
                                     </a>
+
+                                    @if (Auth::user()->role_id == 2)
+                                    <a href="{{ route('admin') }}"
+                                        class="dropdown-item text-white fs-4">
+                                        Back-office
+                                    </a>
+                                    @endif
+
                                     <a class="dropdown-item text-white fs-4" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

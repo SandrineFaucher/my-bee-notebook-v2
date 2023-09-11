@@ -2,10 +2,14 @@
 
 
 @section('content')
+
+<!--bouton retour-->
+<button class="btn btn-secondary mx-auto mt-3 text-center ms-5 mb-5"onclick="rtn()">Retour</button>
+
     <h1 class="text-center"> Visite de la Ruche : {{ $ruche->nom_ruche }} - N° {{ $ruche->numero }}</h1>
 
     <div class="container-fluid mt-5 p-5">
-        <div class="row ">
+        <div class="row d-flex justify-content-around p-5">
 
 
             <!--Formulaire de visite-->
@@ -255,25 +259,25 @@
                 </form>
             </div>
 
-            <div class="col-md-8 p-2 ps-4  d-flex flex-nowrap">
+            <div class="col-lg-8 p-2 ps-4  d-flex justify-content-around">
                 @foreach ($ruche->visites as $visite)
                     <!--Affichage d'une visite-->
 
-                    <div class="card w-50 h-75 mx-auto ">
+                    <div class="card w-50 h-75 mx-auto  ">
                         <div class="card-header ">
-                            <h3>
+                            <h3 class="text-center">
                                 Visite du : {{ date('d/m/y', strtotime($visite->date_visite)) }}
-
+                            
                                 <!--Affichage des icones de modification et de suppression-->
-                                <div class="row mt-4 mx-auto ">
-                                    <div class="d-flex flex-nowrap">
-                                        <div class="col-md-5 text-center pe-2">
+                                <div class="row mt-4 text-center ">
+                                    <div class="col-md-5 text-center mx-auto d-flex flex-nowrap ">
+                                        
                                             <!--icon de modification d'une visite-->
                                             <a href="{{ route('visites.edit', $visite) }}">
                                                 <i
                                                     class="fa-sharp fa-solid fa-pen-to-square fs-5 text-secondary-emphasis"></i>
                                             </a>
-                                        </div>
+                                    </div>
 
                                         <div class="col-md-5 text-center ps-3 ">
                                             <!--icon de suppression du rucher-->
@@ -287,10 +291,9 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>
                             </h3>
                         </div>
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group ">
                             <li class="list-group-item">Cadres d'abeilles : {{ $visite->nombre_cadres_abeilles }}</li>
                             <li class="list-group-item">Cadres de couvain : {{ $visite->nombre_cadres_couvain }}</li>
                             <li class="list-group-item">Cadres de miel : {{ $visite->nombre_cadres_miel }}</li>
@@ -320,4 +323,11 @@
 
         </div>
     </div>
+
+<!--Script pour l'affichage du retour en arrière-->
+<script>
+    function rtn() {
+       window.history.back();
+    }
+</script> 
 @endsection

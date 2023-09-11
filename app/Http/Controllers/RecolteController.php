@@ -21,15 +21,20 @@ class RecolteController extends Controller
         $user= User::find(Auth::user()->id);
         $user->load('recoltes');
 
+                   
         //Charger les ruches du User connecté 
         $ruches = Ruche::whereHas('rucher', function($query){
             return $query->where('user_id', Auth::user()->id);
         })
         ->get();
        
+        //je retourne dans ma vue recolte/index les récoltes du user connecté 'user'
+        //et les ruches de celui-ci 'ruches', ainsi que les données pour mon graphique
+        //dans cette meme vue. 
         return view('recolte/index', [
               'user' => $user,
-              'ruches' => $ruches
+              'ruches' => $ruches,
+              'recoltes' => $user->recoltes,
             ]);
 
     }

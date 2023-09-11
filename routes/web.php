@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PdfController;
+use App\Models\User;
 
 
 /*
@@ -46,3 +48,5 @@ Route::get('/pdf',  [PdfController::class,'index'])->name('pdf');
 //------------------Route correspondant à RecolteController----------------------------//
 Route::resource('/recoltes', \App\Http\Controllers\RecolteController::class);
 
+//-----------------Route correspondant à l'administrateur------------------------------//
+Route::get('/admin', [AdminController::class, 'index',])->name('admin')->middleware('admin');

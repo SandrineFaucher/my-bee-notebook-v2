@@ -4,7 +4,7 @@
     <h1 class="text-center"> Mes ruchers </h1>
 
     
-        <div class="row d-flex justify-content-between">
+        <div class="row d-flex justify-content-around p-5">
 
             <div class="col-md-3 m-4 p-3" id="new-rucher">
                 <form action="{{ route('ruchers.store') }}" method="post">
@@ -12,14 +12,12 @@
                     <!--passe du user connecté dans le formulaire-->
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-
                     <!--Ajout d'un rucher-->
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="fs-3 text-center">Ajouter un rucher</h3>
                         </div>
                     </div>
-
 
                     <!--Nom ou numéro du rucher-->
                     <div class="row">

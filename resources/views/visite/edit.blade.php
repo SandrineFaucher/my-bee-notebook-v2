@@ -3,6 +3,8 @@
 
 @section('content')
 
+<!--bouton retour-->
+<button class="btn btn-secondary mx-auto mt-3 text-center ms-5 mb-5"onclick="rtn()">Retour</button>
 
 <div class="container fluid p-5 ">
     <div class="row">
@@ -251,5 +253,10 @@
 </div>
 </div>
 
-
+<!--Script pour l'affichage du retour en arrière-->
+<script>
+    function rtn() {
+       window.history.back();
+    }
+</script> 
 @endsection

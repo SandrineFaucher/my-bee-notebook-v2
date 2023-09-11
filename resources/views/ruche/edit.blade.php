@@ -2,6 +2,10 @@
 
 
 @section('content')
+
+<!--bouton retour-->
+<button class="btn btn-secondary mx-auto mt-3 text-center ms-5 mb-5"onclick="rtn()">Retour</button>
+
     <div class="container">
         <div class="col-md-6 mx-auto m-4 p-3 my-auto " id="new-ruche">
             <form action="{{ route('ruche.update', $ruche) }}" method="post">
@@ -127,7 +131,7 @@
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
 
-                <!--Formulaire de transfert d'une ruche sur un autre rucher -->
+                <!--Input de transfert d'une ruche sur un autre rucher -->
 
                 <label class="mt-4" for="provenance">Transférer la ruche vers :</label>
                 <select class="form-select @error('rucher_id') is invalid @enderror mt-2" name="rucher_id"

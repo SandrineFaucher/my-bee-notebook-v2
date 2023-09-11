@@ -74,6 +74,10 @@ h3{
     font-family: 'Pacifico', cursive;
     color: #E2B415;
 }
+#logo{
+    height: 150px;
+}
+
 .drop-down-square{
     background-color: #243B4A;
 }

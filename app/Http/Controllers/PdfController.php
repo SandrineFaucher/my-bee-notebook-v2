@@ -23,7 +23,6 @@ class PdfController extends Controller
 
     public function index()
     {
-
         //Je récupère les données dont je vais avoir besoin pour générer mon pdf
         $user = User::find(Auth::user()->id);
         $user->load('adresses.rucher.ruches.visites');
@@ -96,7 +95,7 @@ class PdfController extends Controller
                 //je boucle sur les visites
                 foreach ($ruche->visites as $visite) {
                     
-                    // Remplissez le tableau avec vos données
+                    // Je remplie le tableau avec les données 
                     $this->fpdf->Ln(8); // Passer à la ligne suivante
                     $this->fpdf->Cell(50, 8, mb_convert_encoding(ucfirst($ruche->nom_ruche ."  ". $ruche->numero) , 'ISO-8859-1'), 1, 0, 'C', 0);
                     $this->fpdf->Cell(45, 8, mb_convert_encoding(date('d/m/y', strtotime($visite->date_visite)), 'ISO-8859-1'), 1, 0, 'C', 0);

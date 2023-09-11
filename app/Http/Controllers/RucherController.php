@@ -128,7 +128,7 @@ class RucherController extends Controller
             // si non j'affiche le message d'impossibilité de suppression
         } else {
 
-            return redirect()->route('home')->withErrors(['erreur' =>'Le rucher ne peut être supprimé car au moins une visite lui est associé !']);
+            return redirect()->route('home')->withErrors(['erreur' =>'Le rucher ne peut être supprimé car au moins une ruche lui est associée !']);
         }
     }
 }

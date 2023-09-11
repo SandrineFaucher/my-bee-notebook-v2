@@ -2,10 +2,13 @@
 
 
 @section('content')
+<!--bouton retour-->
+<button class="btn btn-secondary mx-auto mt-3 text-center ms-5 mb-5"onclick="rtn()">Retour</button>
+
     <h1 class="text-center">Rucher : {{ $rucher->nom_rucher }}</h1>
 
     <div class="container-fluid  mt-5 p-2">
-        <div class="row d-flex justify-content-between">
+        <div class="row d-flex justify-content-around p-5">
             <div class="col-md-3 m-4 p-3" id="new-ruche">
 
                 <!--Formulaire d'ajout d'une ruche-->
@@ -198,4 +201,11 @@
 
         </div>
     </div>
+
+<!--Script pour l'affichage du retour en arrière-->
+<script>
+    function rtn() {
+       window.history.back();
+    }
+</script>   
 @endsection
