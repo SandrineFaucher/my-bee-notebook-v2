@@ -49,4 +49,7 @@ Route::get('/pdf',  [PdfController::class,'index'])->name('pdf');
 Route::resource('/recoltes', \App\Http\Controllers\RecolteController::class);
 
 //-----------------Route correspondant à l'administrateur------------------------------//
-Route::get('/admin', [AdminController::class, 'index',])->name('admin')->middleware('admin');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('admin');
+
+//------------------Route de la page de politique de confidentialité-------------------//
+Route::get('/politique', [App\Http\Controllers\HomeController::class, 'politique'])->name('politique');     

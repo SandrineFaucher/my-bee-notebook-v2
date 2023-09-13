@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except("politique");
     }
 
     /**
@@ -33,5 +33,12 @@ class HomeController extends Controller
        //je les renvoie dans la vue Home
        return view('home', ['user'=> $user]);
        
+    }
+
+
+    public function politique(){
+
+        // J'affiche la page politique de confidentialité 
+        return view('politique');
     }
 }

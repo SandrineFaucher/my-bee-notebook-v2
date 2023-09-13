@@ -113,8 +113,8 @@ class RucherController extends Controller
         //je vérifie si le tableau des ruches est vide
         if (count($rucher->ruches) == 0) {
 
-            // et si le rucher appartient au user connecté
-            if (Auth::user()->id == $rucher->user_id) {
+            // et si le rucher appartient au user connecté (+ accès de l'Administrateur)
+            if (Auth::user()->id == $rucher->user_id || Auth::user()->role_id == 2) {
 
                 // Si les conditions précédentes sont respectées je supprime le rucher
                 $rucher->delete();

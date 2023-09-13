@@ -114,6 +114,7 @@ class RucheController extends Controller
      */
     public function destroy(Ruche $ruche)
     {
+        
         // je supprime la ruche 
         $ruche->delete();
         return redirect()->route('ruchers.show', $ruche->rucher_id)->with('message', 'Votre ruche a bien été supprimée !');

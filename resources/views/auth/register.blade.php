@@ -84,9 +84,26 @@
                             </div>
                         </div>
 
+                        <!--Case à cocher pour accepter la politique de confidentialité-->
+                        <div class="form-group row text-center">
+                            <div class="col-md-10">
+                                <label for="politique">J'ai lu et j'accepte les
+                                    <a href="{{ route('politique') }}">mentions légales et politique de confidentialité</a>
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input class="mx-auto" type="checkbox" name="politique" id="politique" 
+                                onclick="toggleValidationButtonDisplay()">
+                            </div>
+
+
+
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-secondary btn-valider">
+                                <button type="submit" class="btn btn-secondary btn-valider" id="valider" name="valider"
+                                style ="visibility: hidden">
                                     {{ __('Valider') }}
                                 </button>
                             </div>
@@ -97,4 +114,14 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function toggleValidationButtonDisplay(){
+        let checkbox = document.getElementById("politique");
+        let boutonValider = document.getElementById("valider");
+        checkbox.checked ? boutonValider.style.visibility = "visible" : boutonValider.style.visibility = "hidden"
+        }
+    </script>
+    
 @endsection

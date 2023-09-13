@@ -122,7 +122,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        if (Auth::user()->id == $user->id) {
+        if (Auth::user()->id == $user->id || Auth::user()->role_id == 2) {
             $user->delete();
             return redirect()->route('home')->with('message', 'Le compte a bien été supprimé');
         } else {
