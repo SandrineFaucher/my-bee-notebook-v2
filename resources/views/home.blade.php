@@ -6,7 +6,7 @@
     
         <div class="row d-flex justify-content-around p-5">
 
-            <div class="col-md-3 m-4 p-3" id="new-rucher">
+            <div class="col-lg-3 m-4 p-3" id="new-rucher">
                 <form action="{{ route('ruchers.store') }}" method="post">
                     @csrf
                     <!--passe du user connecté dans le formulaire-->
@@ -86,7 +86,7 @@
             </div>
 
             <!--Affichage des ruchers créés-->
-            <div class="col-md-8 d-flex justify-content-center flex-wrap m-3" id="square-ruchers">
+            <div class="col-lg-8 d-flex justify-content-center flex-wrap m-3" id="square-ruchers">
                 
                 <!--Boucle sur les ruchers du user connecté pour les afficher-->
                 @foreach ($user->ruchers as $rucher)

@@ -9,7 +9,7 @@
 
     <div class="container-fluid  mt-5 p-2">
         <div class="row d-flex justify-content-around p-5">
-            <div class="col-md-3 m-4 p-3" id="new-ruche">
+            <div class="col-lg-3 m-4 p-3" id="new-ruche">
 
                 <!--Formulaire d'ajout d'une ruche-->
                 <form action="{{ route('ruche.store') }}" method="post">
@@ -155,7 +155,7 @@
                     <!--Affichage des ruches appartenant au rucher -->
                     <div class="row mx-auto my-auto">
                     <a href="{{ route('ruche.show', $ruche) }}">
-                        <div class="col-md-3 mt-3 text-center" id="ruche">
+                        <div class="col-lg-3 mt-3 text-center" id="ruche">
                             
                                 <div class="col-md-12 badge">
                                     <img src="{{ asset('images/ruche-blanche.png') }}" class="img-ruche mb-2" alt="ruche"

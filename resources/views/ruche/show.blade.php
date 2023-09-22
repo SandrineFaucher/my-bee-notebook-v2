@@ -13,7 +13,7 @@
 
 
             <!--Formulaire de visite-->
-            <div class="col-md-3" id="visite">
+            <div class="col-lg-3" id="visite">
                 <h3 class="text-center">Création d'une visite</h3>
                 <form action="{{ route('visites.store') }}" method="post">
                     @csrf
@@ -259,12 +259,13 @@
                 </form>
             </div>
 
-            <div class="col-lg-8 p-2 ps-4  d-flex justify-content-around">
+            <div class="col-lg-8 p-2 ps-4 mt-5 d-flex justify-content-around">
                 @foreach ($ruche->visites as $visite)
                     <!--Affichage d'une visite-->
 
-                    <div class="card w-50 h-75 mx-auto  ">
+                    <div class="col-lg-6 ">
                         <div class="card-header ">
+                            
                             <h3 class="text-center">
                                 Visite du : {{ date('d/m/y', strtotime($visite->date_visite)) }}
                             
@@ -293,6 +294,7 @@
                                     </div>
                             </h3>
                         </div>
+
                         <ul class="list-group ">
                             <li class="list-group-item">Cadres d'abeilles : {{ $visite->nombre_cadres_abeilles }}</li>
                             <li class="list-group-item">Cadres de couvain : {{ $visite->nombre_cadres_couvain }}</li>
@@ -318,7 +320,6 @@
                         </ul>
                     </div>
                 @endforeach
-
             </div>
 
         </div>

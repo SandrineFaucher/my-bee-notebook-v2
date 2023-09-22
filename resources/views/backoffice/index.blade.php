@@ -9,11 +9,11 @@
                 <div class="row ">
 
                     <!--Affichage et suppression des comptes utilisateurs-->
-                    <h3 class="mt-4 mb-4 text-center">Suppression des comptes utilisateurs</h3>
+                    <h3 class="mt-4 mb-4 text-center">Suppression des comptes utilisateurs, ruchers ou ruches</h3>
                     @foreach ($user as $user)
 
                         <div class="col-md-8 my-auto">
-                            <p class="fs-2 my-auto">{{ $user->nom }} {{ $user->prenom }}</p>
+                            <p class="fs-2 my-auto border-bottom border-secondary">{{ $user->nom }} {{ $user->prenom }}</p>
                         </div>
 
                         <div class="col-md-4">
@@ -31,7 +31,7 @@
                         <!-- Affichage et suppression des ruchers-->
                         @foreach($user->ruchers as $rucher)
                         <div class="col-md-8 my-auto">
-                            <p class="fs-4 my-auto ms-3">{{ $rucher->nom_rucher }} </p>
+                            <p class="fs-4 my-auto ms-4 border-bottom border-warning">{{ $rucher->nom_rucher }} </p>
                         </div>
 
                         <div class="col-md-4">
@@ -49,7 +49,7 @@
                         <!-- Affichage et suppression des ruches-->
                         @foreach($rucher->ruches as $ruche)
                         <div class="col-md-8 my-auto">
-                            <p class="fs-6 my-auto ms-3">{{ $ruche->numero }} </p>
+                            <p class="fs-6 my-auto ms-5">{{ $ruche->numero }} </p>
                         </div>
 
                         <div class="col-md-4">

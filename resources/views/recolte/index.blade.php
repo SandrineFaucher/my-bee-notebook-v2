@@ -140,7 +140,9 @@
                             </div>
                         </div>
                     </div>
+                   
                 @endforeach
+
                 <!--CONSTRUCTION DU GRAPHIQUE AVEC CHART.JS-->
                 <div class="row">
                     <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
@@ -153,23 +155,40 @@
 
                 <script>
                     const barCanvas = document.getElementById("barCanvas");
+                    @php
+                    $date = [];
+                    $miel = [];
+                    foreach($user->recoltes as $recolte){
+                        $datetoto = new DateTimeImmutable( $recolte->created_at);
+                         
+                    array_push($date, $datetoto->format('d-m-Y'));
+                    array_push($miel, $recolte->miel);
+                    }
 
-                    console.log(JSON.stringify({{ json_decode(implode(",", $recoltes->toArray())) }}));
+                    
+                    @endphp 
+                    
 
                     const barChart = new Chart(barCanvas, {
+
+                        
+
                         type: "bar",
                         data: {
-
+                            
+                            labels : {{Js::from($date)}},
+                            
                             datasets: [{
-                                label: "Miel",
-                                data: [JSON.stringify({{ $recoltes }})],
-                                backgroundColor: ['yellow']
+                                label: 'Mes récoltes de Miel',
+                                
+                                data : {{Js::from($miel)}},
+                                backgroundColor: ['orange']
                             }]
                         },
                         options: {
                             scales: {
                                 y: {
-                                    suggestedMax: 200,
+                                    suggestedMax: 500,
                                     ticks: {
                                         font: {
                                             size: 12

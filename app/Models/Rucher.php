@@ -18,10 +18,8 @@ class Rucher extends Model
         'user_id',
         'adresse_id',
         'nom_rucher',
-        'nombre_ruches',
         'environnement',
         ];
-
 
     // nom de la fonction au pluriel car un rucher peut posséder plusieurs ruches
     // cardinalités 1,n
@@ -39,7 +37,5 @@ class Rucher extends Model
     // cardinalité 1,1
     public function adresse(){
         return $this->belongsTo(Adresse::class);
-    }
-
-            
+    }  
 }
