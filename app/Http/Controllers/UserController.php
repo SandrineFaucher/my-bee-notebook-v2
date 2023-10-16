@@ -68,35 +68,24 @@ class UserController extends Controller
         return back()->with('message', 'Vos informations ont bien été modifiées');
     }
 
-
-    public function updatePassword(Request $request, User $user)
-    {
-
-        $request->validate([
+    public function updatePassword(Request $request, User $user){
+            $request->validate([
             'actuel_password' => 'required',
             'nouveau_password' => [
-
                 // toutes versions de laravel confondues
                 'required', 'confirmed',
-
-                // ancienne syntaxe avant laravel 8
-                // regex ..
-
-                Password::min(8) // minimum 8 caractères 
+                Password::min(8)  // minimum 8 caractères 
                     ->mixedCase() // une minuscule, une majuscule 
-                    ->letters()     // min 1 lettre
-                    ->numbers()        // Min 1 chiffre
+                    ->letters()   // min 1 lettre
+                    ->numbers()   // Min 1 chiffre
                     ->symbols()   // carcatère speciaux 
             ]
         ]);
-
-
         // On met en place les variables necessaires
-        $user = User::find(Auth::user()->id);                                       // l'utilisateur connecté
+        $user = User::find(Auth::user()->id);                      // l'utilisateur connecté
         $actuelPassword = $request->actuel_password;               // mot de pas actuel saisis (en clair)
         $actuelPasswordHashed = $user->password;                   // mot de passe en base (Hashed)
-        $nouveau_password = $request->nouveau_password;             // nouveau mor de passe saisi (en clair)
-
+        $nouveau_password = $request->nouveau_password;            // nouveau mor de passe saisi (en clair)
         // test 1 : si mot de passe actuel saisi = mot de passe actuel bdd => ok, sinon => erreur
         if (Hash::check($actuelPassword, $actuelPasswordHashed)) {
 
@@ -108,8 +97,6 @@ class UserController extends Controller
             } else {
                 return redirect()->back()->withErrors(['password_error', 'ancien et nouveau mot de passe identique']);
             }
-
-
             // cas d'erreur test 1: 
         } else {
             return redirect()->back()->withErrors(['password_error', 'mot de passe actuel saisie incorrect']);

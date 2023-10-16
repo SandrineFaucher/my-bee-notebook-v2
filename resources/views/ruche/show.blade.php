@@ -2,9 +2,8 @@
 
 
 @section('content')
-
-<!--bouton retour-->
-<button class="btn btn-secondary mx-auto mt-3 text-center ms-5 mb-5"onclick="rtn()">Retour</button>
+    <!--bouton retour-->
+    <button class="btn btn-secondary mx-auto mt-3 text-center ms-5 mb-5"onclick="rtn()">Retour</button>
 
     <h1 class="text-center"> Visite de la Ruche : {{ $ruche->nom_ruche }} - N° {{ $ruche->numero }}</h1>
 
@@ -13,7 +12,7 @@
 
 
             <!--Formulaire de visite-->
-            <div class="col-lg-3" id="visite">
+            <div class="col-lg-4 " id="visite">
                 <h3 class="text-center">Création d'une visite</h3>
                 <form action="{{ route('visites.store') }}" method="post">
                     @csrf
@@ -87,6 +86,7 @@
                             <label for="reine_vue">Reine vue :</label>
                             <select class="form-select @error('reine_vue') is invalid @enderror" name="reine_vue"
                                 aria-label="Default select example">
+                                <option value="">  </option>
                                 <option value="Non"> Non </option>
                                 <option value="Oui"> Oui </option>
                             </select>
@@ -176,7 +176,8 @@
                     <div class="row">
                         <div class="col-md-12 mt-3">
                             <label for="commentaire">Détails sanitaires (*registre d'élevage) :</label>
-                            <textarea class="form-control @error('detail_traitement') is invalid @enderror " name="detail_traitement" rows="5"></textarea>
+                            <textarea class="form-control @error('detail_traitement') is invalid @enderror " name="detail_traitement"
+                                rows="5"></textarea>
                         </div>
                         @error('detail_traitement')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -232,8 +233,8 @@
                     <div class="row">
                         <div class="col-md-12 mt-3">
                             <label for="force">Force de la ruche de 1 à 10 :</label>
-                            <input type="range" class="form-range @error('force') is invalid @enderror " name="force"
-                                min="1" max="10" />
+                            <input type="range" class="form-range @error('force') is invalid @enderror "
+                                name="force" min="1" max="10" />
                         </div>
                         @error('force')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -260,75 +261,209 @@
             </div>
 
             <div class="col-lg-8 p-2 ps-4 mt-5 d-flex justify-content-around">
-                @foreach ($ruche->visites as $visite)
-                    <!--Affichage d'une visite-->
+                <!--Affichage d'une visite-->
+                <div class="col-lg-8 ">
+                    <h3 class="text-center">
+                        Visite du : {{ $derniereVisite->date_visite ? date('d/m/y', strtotime($derniereVisite->date_visite)) : 'Aucune visite récente' }}
 
-                    <div class="col-lg-6 ">
-                        <div class="card-header ">
-                            
-                            <h3 class="text-center">
-                                Visite du : {{ date('d/m/y', strtotime($visite->date_visite)) }}
-                            
-                                <!--Affichage des icones de modification et de suppression-->
-                                <div class="row mt-4 text-center ">
-                                    <div class="col-md-5 text-center mx-auto d-flex flex-nowrap ">
-                                        
-                                            <!--icon de modification d'une visite-->
-                                            <a href="{{ route('visites.edit', $visite) }}">
-                                                <i
-                                                    class="fa-sharp fa-solid fa-pen-to-square fs-5 text-secondary-emphasis"></i>
-                                            </a>
-                                    </div>
+                        <!--Affichage des icones de modification et de suppression-->
+                        <div class="row text-center ">
+                            <div class="col-md-12 d-flex justify-content-around">
+                                <div class="col-md-6  text-center  ">
 
-                                        <div class="col-md-5 text-center ps-3 ">
-                                            <!--icon de suppression du rucher-->
-                                            <form action="{{ route('visites.destroy', $visite) }}" method="post">
-                                                @csrf
-                                                @method('delete')
+                                    <!--icone de modification d'une visite-->
+                                    <a href="{{ route('visites.edit', $derniereVisite) }}">
+                                        <i class="fa-sharp fa-solid fa-pen-to-square fs-5 text-secondary-emphasis"
+                                            title="Modifier"></i>
+                                    </a>
+                                </div>
 
-                                                <button type="submit" class="btn-delete"><i
-                                                        class="fa-solid fa-circle-xmark fs-5 text-secondary-emphasis"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                            </h3>
+                                <div class="col-md-6 text-center  ">
+                                    <!--icon de suppression du rucher-->
+                                    <form action="{{ route('visites.destroy', $derniereVisite) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+
+                                        <button type="submit" class="btn-delete"><i
+                                                class="fa-solid fa-circle-xmark fs-5 text-secondary-emphasis"
+                                                title="Supprimer"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
+                    </h3>
 
-                        <ul class="list-group ">
-                            <li class="list-group-item">Cadres d'abeilles : {{ $visite->nombre_cadres_abeilles }}</li>
-                            <li class="list-group-item">Cadres de couvain : {{ $visite->nombre_cadres_couvain }}</li>
-                            <li class="list-group-item">Cadres de miel : {{ $visite->nombre_cadres_miel }}</li>
-                            <li class="list-group-item">Hausses : {{ $visite->nombre_hausses }}</li>
-                            @if($visite->reine_vue == 'Oui')
-                            <li class="list-group-item">Reine vue : <i class="fa-solid fa-eye yes ms-5"></i></li>
-                            @elseif($visite->reine_vue == 'Non')
-                            <li class="list-group-item">Reine vue : <i class="fa-solid fa-eye-slash no ms-5"></i></li>
-                            @endif
-                            <li class="list-group-item">Cellules royales : {{ $visite->cellules_royales }}</li>
-                            <li class="list-group-item">Ruche orpheline : {{ $visite->ruche_orpheline }}</li>
-                            <li class="list-group-item">Essaimage : {{ $visite->essaimage }}</li>
-                            <li class="list-group-item">Nourrissement : {{ $visite->nourrissement }}</li>
-                            <li class="list-group-item">Traitements : {{ $visite->traitement }}</li>
-                            <li class="list-group-item">Détails sanitaires : {{ $visite->detail_traitement }}</li>
-                            <li class="list-group-item">Grille à reine : {{ $visite->grille_reine }}</li>
-                            <li class="list-group-item">Chasse abeilles : {{ $visite->chasse_abeilles }}</li>
-                            <li class="list-group-item">Grilles à propolis : {{ $visite->grille_propolis }}</li>
-                            <li class="list-group-item">Force de la ruche : {{ $visite->force }}</li>
-                            <li class="list-group-item">Commentaire : {{ $visite->commentaire }}</li>
 
-                        </ul>
-                    </div>
-                @endforeach
+                    <ul class="list-group ">
+
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6 ">
+                                    <p>Cadres d'abeilles : </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->nombre_cadres_abeilles }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Cadres de couvain : </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->nombre_cadres_couvain }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Cadres de miel : </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->nombre_cadres_miel }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Hausses : </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->nombre_hausses }}
+                                </div>
+                            </div>
+                        </li>
+                        @if ($derniereVisite->reine_vue == 'Oui')
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Reine vue : </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <i class="fa-solid fa-eye yes" ></i>
+                                </div>
+                            </div>
+                        </li>
+                        @elseif($derniereVisite->reine_vue == 'Non')
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3 pr-0">
+                                <div class="col-md-6 mx-auto">
+                                    <p>Reine vue : </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <i class="fa-solid fa-eye-slash no"></i>
+                                </div>
+                            </div>
+                        </li>
+                        @endif
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Cellules royales :  </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->cellules_royales }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Ruche orpheline :  </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->ruche_orpheline }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Essaimage :  </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->essaimage }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Nourrissement :  </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->nourrissement }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Traitements :  </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->traitement }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item word-break: break-word">Détails sanitaires :
+                            {{ $derniereVisite->detail_traitement }}</li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Grille à reine :  </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->grille_reine }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Chasse abeilles :   </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->chasse_abeilles }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Grilles à propolis :   </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->grille_propolis }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="col-md-12 d-flex justify-content-around pt-3">
+                                <div class="col-md-6">
+                                    <p>Force de la ruche :   </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    {{ $derniereVisite->force }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item word-break: break-word">Commentaire :
+                            {{ $derniereVisite->commentaire }}</li>
+                    </ul>
+                </div>
             </div>
-
         </div>
     </div>
 
-<!--Script pour l'affichage du retour en arrière-->
-<script>
-    function rtn() {
-       window.history.back();
-    }
-</script> 
+    <!--Script pour l'affichage du retour en arrière-->
+    <script>
+        function rtn() {
+            window.history.back();
+        }
+    </script>
 @endsection

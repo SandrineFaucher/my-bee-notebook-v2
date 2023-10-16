@@ -38,7 +38,6 @@
                             <form action="{{ route('ruchers.destroy', $rucher) }}" method="POST">
                                 @csrf
                                 @method('delete')
-
                                 <button type="submit" class="btn btn-warning col-md-8 mb-2 mt-3">
                                     Suppression du rucher
                                 </button>
@@ -56,11 +55,9 @@
                             <form action="{{ route('ruche.destroy', $ruche) }}" method="POST">
                                 @csrf
                                 @method('delete')
-
                                 <button type="submit" class="btn btn-danger col-md-8 mb-2 mt-3">
                                     Suppression de la ruche
                                 </button>
-
                             </form>
                         </div>
                         @endforeach

@@ -17,14 +17,12 @@
                     <!--passe rucher_id dans le formulaire-->
                     <input type="hidden" name="rucher_id" value="{{ $rucher->id }}">
 
-
                     <!--Ajout d'une ruche-->
                     <div class="row">
                         <div class="col-md-12">
                             <p class="fs-3 text-center">Ajouter une ruche</p>
                         </div>
                     </div>
-
 
                     <!--Nom de la ruche -->
                     <div class="row">
@@ -177,7 +175,7 @@
                                 <!--icon de modification d'une ruche-->
                                 <div class="col-md-3 mx-auto fs-4">
                                     <a href="{{ route('ruche.edit', $ruche) }}">
-                                        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-sharp fa-solid fa-pen-to-square" title="Modifier"></i>
                                     </a>
                                 </div>
 
@@ -187,7 +185,7 @@
                                         @csrf
                                         @method('delete')
 
-                                        <button type="submit" class="btn-delete"><i class="fa-solid fa-circle-xmark"></i>
+                                        <button type="submit" class="btn-delete"><i class="fa-solid fa-circle-xmark" title="Supprimer"></i>
                                         </button>
                                     </form>
                                 </div>

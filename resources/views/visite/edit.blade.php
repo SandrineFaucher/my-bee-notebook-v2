@@ -170,7 +170,7 @@
         <div class="row">
             <div class="col-md-12 mt-3">
                 <label for="commentaire">Détail du traitement :</label>
-                <textarea class="form-control @error('detail_traitement') is invalid @enderror " name="detail_traitement" rows="5"></textarea>
+                <textarea class="form-control @error('detail_traitement') is invalid @enderror " name="detail_traitement" rows="5">{{$visite->detail_traitement}}</textarea>
             </div>
             @error('detail_traitement')
                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>

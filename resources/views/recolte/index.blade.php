@@ -120,14 +120,14 @@
                         <div class="row  mx-auto ">
                             <div class="d-flex flex-nowrap text-center">
                                 <div class="col-md-5 text-center pe-2">
-                                    <!--icon de modification d'une visite-->
+                                    <!--icon de modification d'une recolte-->
                                     <a href="{{ route('recoltes.edit', $recolte) }}">
                                         <i class="fa-sharp fa-solid fa-pen-to-square fs-5 text-secondary-emphasis"></i>
                                     </a>
                                 </div>
 
                                 <div class="col-md-5 text-center ps-3 ">
-                                    <!--icon de suppression du rucher-->
+                                    <!--icon de suppression d'une récolte'-->
                                     <form action="{{ route('recoltes.destroy', $recolte) }}" method="post">
                                         @csrf
                                         @method('delete')
@@ -143,68 +143,73 @@
                    
                 @endforeach
 
-                <!--CONSTRUCTION DU GRAPHIQUE AVEC CHART.JS-->
-                <div class="row">
-                    <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
-                    <div style="width: 800px;">
-                        <canvas id="barCanvas" role="img">
-                            <p>Graphique des récoltes</p>
-                        </canvas>
-                    </div>
-                </div>
-
-                <script>
-                    const barCanvas = document.getElementById("barCanvas");
-                    @php
-                    $date = [];
-                    $miel = [];
-                    foreach($user->recoltes as $recolte){
-                        $datetoto = new DateTimeImmutable( $recolte->created_at);
-                         
-                    array_push($date, $datetoto->format('d-m-Y'));
-                    array_push($miel, $recolte->miel);
-                    }
-
-                    
-                    @endphp 
-                    
-
-                    const barChart = new Chart(barCanvas, {
-
-                        
-
-                        type: "bar",
-                        data: {
-                            
-                            labels : {{Js::from($date)}},
-                            
-                            datasets: [{
-                                label: 'Mes récoltes de Miel',
-                                
-                                data : {{Js::from($miel)}},
-                                backgroundColor: ['orange']
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    suggestedMax: 500,
-                                    ticks: {
-                                        font: {
-                                            size: 12
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    })
-                </script>
-
+                
 
             </div>
 
         </div>
+        <!--CONSTRUCTION DU GRAPHIQUE AVEC CHART.JS-->
+        <div class="row text-center">
+            <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
+            <div style="width: 800px;" class="mx-auto">
+                <canvas id="barCanvas" role="img">
+                    <p>Graphique des récoltes</p>
+                </canvas>
+            </div>
+        </div>
 
+        <script>
+            const barCanvas = document.getElementById("barCanvas");
+            @php
+            $date = [];
+            $miel = [];
+            foreach($user->recoltes as $recolte){
+                $dateFormatee = new DateTimeImmutable( $recolte->created_at);
+                 
+            array_push($date, $dateFormatee->format('d-m-Y'));
+            array_push($miel, $recolte->miel);
+            }
+
+            
+            @endphp 
+            
+
+            const barChart = new Chart(barCanvas, {
+
+                
+
+                type: "bar",
+                data: {
+                    
+                    labels : {{Js::from($date)}},
+                    
+                    datasets: [{
+                        label: 'Mes récoltes de Miel',
+                        
+                        data : {{Js::from($miel)}},
+                        backgroundColor: ['orange']
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            suggestedMax: 500,
+                            ticks: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+        </script>
+        
+
+
+
+
+       
         <!--Script pour l'affichage du retour en arrière-->
         <script>
             function rtn() {

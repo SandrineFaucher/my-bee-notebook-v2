@@ -13,7 +13,7 @@
         <!--Titre encadré : registre-elevage-->
         <div class="col-lg-3 p-3    mt-5" id="registre-elevage">
             <h3 class="text-center">Registre d'élevage</h3>
-            <h6 class="mb-5">* champs obligatoires pour générer le registre</h6>
+            <h6 class="mb-5 text-center">* champs obligatoires pour générer le registre d'élevage</h6>
 
 
             <!-- J'INSTALLE UN FORMULAIRE CONDITIONNEL POUR CREER OU MODIFIER L'ADRESSE NECESSAIRE POUR GENERER UN REGISTRE D'ELEVAGE-->
@@ -25,7 +25,6 @@
             @endphp
 
             <!--je boucle sur mes adresses users pour évaluer $presencenapi à true si l'adresse contient un napi-->
-
             @foreach ($user->adresses as $adresse)
                 @if ($adresse->napi)
                     @php
@@ -169,8 +168,8 @@
 
             <!--Affichage du lien pour générer le pdf du registre d'élevage-->
             <div class="text-center mt-3">
-            <p>Mon registre d'élevage</p>
-            <a href="{{ route('pdf') }}"> PDF </a>
+            <h3>Je génère le document</h3>
+            <a href="{{ route('pdf') }}"> <i class="fa-solid fa-file-pdf" id="icone-compte1" ></i> </a>
             </div>
 
         </div>
@@ -214,14 +213,14 @@
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
+                    <button type="submit" class="btn btn-secondary mx-auto mt-5 text-center">
                         Modifier
                     </button>
                 </div>
             </form>
 
             <!--Bouton de suppression du compte-->
-            <div class="col-md-12  text-center">
+            <div class="col-md-12  text-center mt-5 pt-5">
                 <form action="{{ route('users.destroy', $user) }}" method="POST">
                     @csrf
                     @method('delete')
@@ -229,7 +228,7 @@
                     <button type="submit" class="btn btn-secondary col-md-8 mb-2 mt-3">
                         Suppression du compte
                     </button>
-                    <p><i class="fa-solid fs-4 fa-triangle-exclamation"></i> Cette action entraîne la suppression de tous
+                    <p><i class="fa-solid fs-4 fa-triangle-exclamation" id="icone-compte2"></i> Cette action entraîne la suppression de tous
                         les éléments associés au compte</P>
                 </form>
             </div>
@@ -268,7 +267,7 @@
                 @enderror
 
                 <!--Confirmation du mot de passe-->
-                <div class="col-md-12 mt-5 mb-3">
+                <div class="col-md-12 mt-5 mb-5">
                     <label for="inputPassword" class="form-label">Confirmer le mot de passe</label>
                     <input type="password" class="form-control @error('password') is invalid @enderror"
                         id="inputPassword" name="nouveau_password_confirmation" value="{{ old('password') }}">
@@ -277,8 +276,8 @@
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
 
-                <div class="text-center">
-                    <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
+                <div class="text-center ">
+                    <button type="submit" class="btn btn-secondary mx-auto mt-5 text-center">
                         Modifier le mot de passe
                     </button>
                 </div>

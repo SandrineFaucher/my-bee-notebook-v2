@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ruche;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Rucher;
-
+use Illuminate\Validation\Rules\Exists;
 
 class RucheController extends Controller
 {
@@ -42,7 +42,6 @@ class RucheController extends Controller
         ]);
  
         
-        
         //je sauvegarde en BDD les entrées du formulaire ajout d'une ruche 
         Ruche::create([
             'nom_ruche'     => $request->nom_ruche,
@@ -63,9 +62,12 @@ class RucheController extends Controller
     {
         // je récupère mes ruches ainsi que ses visites associées avec un eager loading
         $ruche->load('visites');
-        return view('ruche.show', ['ruche'=> $ruche]);
-    }
 
+        //if ($ruche->visites->isNotEmpty())
+        // je trie par date en ordre décroissant de la plus récente à la plus ancienne 
+        $derniereVisite = $ruche->visites->sortByDesc('date_visite')->first();
+        return view('ruche.show', ['ruche'=> $ruche,'derniereVisite' => $derniereVisite]);
+    } 
     /**
      * Show the form for editing the specified resource.
      */

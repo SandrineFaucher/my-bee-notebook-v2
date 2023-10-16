@@ -30,7 +30,6 @@ class VisiteController extends Controller
      */
     public function store(Request $request)
     {
-        
         // je valide mes données de formulaire
         $request->validate([
             'nombre_cadres_abeilles' => 'required|min:1|max:2',

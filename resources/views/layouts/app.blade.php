@@ -32,7 +32,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md shadow-sm sticky-top" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md shadow-sm fixed-top" data-bs-theme="dark">
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="{{ url('home') }}">
@@ -117,7 +117,7 @@
         </nav>
 
         <main class="py-4">
-            <div class="container-fluid text-center mt-5 pt-5">
+            <div class="container-fluid text-center " id="messages">
                 @if (session()->has('message'))
                     <p class="alert alert-success"> {{ session()->get('message') }} </p>
                 @endif

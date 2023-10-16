@@ -46,9 +46,10 @@ h3, .h3{
     width: auto;
     height: 150vh;
     background-size: cover;
-    background-position: center;
+   
     display:flex;
     justify-content: center;
+    
 }
 #inscription{
     width: 70rem;
@@ -86,7 +87,9 @@ h3, .h3{
     background-color: #243B4A;
     color: white;
 }
-
+#messages{
+    margin-top: 200px;
+}
 /* home.blade.php (+ formulaires de rucher.show et ruche.show)*/
 #home{
     margin-top: 300px;
@@ -137,7 +140,11 @@ h1{
     background-color: #E2B415;
     box-shadow:8px 8px 6px 2px #243B4A;
 }
-
+#icone-compte1{
+    color: #243B4A;
+    font-size:xx-large;
+    margin-top: 10px;
+}
 
 /* rucher/show.blade.php */
 #ruche{

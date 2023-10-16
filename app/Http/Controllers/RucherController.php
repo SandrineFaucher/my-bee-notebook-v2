@@ -60,6 +60,7 @@ class RucherController extends Controller
      */
     public function show(Rucher $rucher)
     {
+        
         // je récupère mes ruchers ainsi que ses ruches associées avec un eager loading
         $rucher->load('ruches');
         return view('rucher.show', ['rucher'=> $rucher]);

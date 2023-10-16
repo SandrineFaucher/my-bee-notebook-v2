@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-center"> Mes ruchers </h1>
+    <h1 class="text-center mt-5 pt-5"> Mes ruchers </h1>
 
     
         <div class="row d-flex justify-content-around p-5">
@@ -37,6 +37,7 @@
                             <label for="nom_rucher">Environnement :</label>
                             <select class="form-select @error('environnement') is invalid @enderror" name="environnement"
                                 aria-label="Default select example">
+                                <option value=""></option>
                                 <option value="Foret">Foret</option>
                                 <option value="Champs cultivés">Champs cultivés</option>
                                 <option value="Jardin privé">Jardin privé</option>
@@ -122,7 +123,7 @@
                                 <div class="col-md-5 mx-auto pe-2">
                                     <!--icon de modification du rucher-->
                                     <a href="{{ route('ruchers.edit', $rucher) }}">
-                                         <i class="fa-sharp fa-solid fa-pen-to-square fs-5"></i>
+                                         <i class="fa-sharp fa-solid fa-pen-to-square fs-5" title="Modifier"></i>
                                     </a>
                                 </div>
 
@@ -132,7 +133,7 @@
                                         @csrf
                                         @method('delete')
 
-                                        <button type="submit" class="btn-delete"><i class="fa-solid fa-circle-xmark fs-5"></i>
+                                        <button type="submit" class="btn-delete"><i class="fa-solid fa-circle-xmark fs-5" title="Supprimer"></i>
                                         </button>
                                     </form>
                                 </div>
