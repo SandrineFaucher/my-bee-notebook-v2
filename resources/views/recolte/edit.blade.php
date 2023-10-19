@@ -3,9 +3,13 @@
 
 @section('content')
 <!--Formulaire d'ajout d'une récolte-->
-<div class="col-md-3 mx-auto" id="recolte">
-    <h3 class="text-center">Modifier la récolte</h3>
-    <form action="{{ route('recoltes.update' , $recolte) }}" method="post">
+<button class="btn btn-secondary mx-auto mt-3 text-center ms-5 mb-5"onclick="rtn()">Retour</button>
+
+<div class="container-fluid mt-5">
+  <div class="row d-flex justify-content-around p-5">
+  <div class="col-md-3 mx-auto" >
+        <form action="{{ route('recoltes.update' , $recolte) }}" method="post" id="recolte">
+      <h3 class="text-center">Modifier la récolte</h3>
       @csrf
       @method('put')
         <!--Je passe le user de la récolte en hidden-->
@@ -64,7 +68,7 @@
               <div class="col-md-12">
                 @foreach($ruches as $ruche)
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="rucheId{{$ruche->id}}" value="{{$ruche->id}}" id="ruche{{$ruche->id}}"
+                    <input class="form-check-input" type="checkbox"   name="rucheId{{$ruche->id}}" value="{{$ruche->id}}" id="ruche{{$ruche->id}}"
                     @if($ruche->recoltes()->where('recolte_id', $recolte->id)->exists()) checked @endif >
                     <label class="form-check-label" for="flexCheckDefault" >
                        {{$ruche->numero}}
@@ -83,6 +87,13 @@
           </div>
       </form>
     </div>
+  </div>
+</div>
 
-
+<!--Script pour l'affichage du retour en arrière-->
+<script>
+  function rtn() {
+      window.history.back();
+  }
+</script>
 @endsection

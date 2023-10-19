@@ -2,29 +2,28 @@
 
 @section('content')
     <h1 class="text-center mt-5 pt-5"> Mes ruchers </h1>
-
     
         <div class="row d-flex justify-content-around p-5">
 
-            <div class="col-lg-3 m-4 p-3" id="new-rucher">
-                <form action="{{ route('ruchers.store') }}" method="post">
+            <div class="col-xl-3 m-4 p-3" >
+                <form action="{{ route('ruchers.store') }}" method="post" id="new-rucher">
                     @csrf
-                    <!--passe du user connecté dans le formulaire-->
+                    <!--passage du user connecté dans le formulaire-->
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
                     <!--Ajout d'un rucher-->
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="fs-3 text-center">Ajouter un rucher</h3>
+                            <h3 class="fs-3 text-center mb-3">Ajouter un rucher</h3>
                         </div>
                     </div>
 
                     <!--Nom ou numéro du rucher-->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="nom_rucher">Nom du rucher :</label>
-                            <input type="text" class="form-control word-break: break-word @error('nom_rucher') is invalid @enderror "
-                                name="nom_rucher" value="Nom court" />
+                            <label for="nom_rucher" class="fs-5">Nom du rucher :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 word-break: break-word @error('nom_rucher') is invalid @enderror" 
+                                name="nom_rucher" />
                         </div>
                     </div>
                     @error('nom_rucher')
@@ -34,8 +33,8 @@
                     <!--Environnement-->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="nom_rucher">Environnement :</label>
-                            <select class="form-select @error('environnement') is invalid @enderror" name="environnement"
+                            <label for="nom_rucher" class="fs-5">Environnement :</label>
+                            <select class="form-select form-select-lg fs-5 @error('environnement') is invalid @enderror" name="environnement"
                                 aria-label="Default select example">
                                 <option value=""></option>
                                 <option value="Foret">Foret</option>
@@ -53,22 +52,22 @@
                     <!--Adresse rucher-->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="nom_rucher">Adresse :</label>
-                            <input type="text" class="form-control @error('adresse') is invalid @enderror"
+                            <label for="nom_rucher" class="fs-5">Adresse :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('adresse') is invalid @enderror"
                                 name="adresse" />
                             @error('adresse')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
 
-                            <label for="nom_rucher">Ville :</label>
-                            <input type="text" class="form-control @error('ville') is invalid @enderror"
+                            <label for="nom_rucher" class="fs-5">Ville :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('ville') is invalid @enderror"
                                 name="ville" />
                             @error('ville')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
 
-                            <label for="nom_rucher">Code postal :</label>
-                            <input type="text" class="form-control @error('code_postal') is invalid @enderror"
+                            <label for="nom_rucher" class="fs-5">Code postal :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('code_postal') is invalid @enderror"
                                 name="code_postal" />
                             @error('code_postal')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -79,7 +78,7 @@
 
                     <!--Créer le rucher/ Valider-->
                     <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center ">
+                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center fs-5">
                             valider
                         </button>
                     </div>
@@ -111,7 +110,7 @@
                                 <img class= "w-50 h-50 mb-3" src="{{ asset('images/icone-jardin-blanc.png') }}" alt="garden-icon">
                                 @endif
                                 <div class="row text-center d-flex flex-wrap">
-                                <div class="col-md-10 mx-auto fs-6 text-wrap">
+                                <div class="col-md-10 mx-auto fs-5 text-wrap">
                                     {{ $rucher->nom_rucher }}
                                 </div>
                                 </div> 
@@ -143,12 +142,6 @@
                     </a>
                     </div>
                     @endforeach
-                
             </div>
-
-
-
-        </div>
-
-    
+        </div>   
 @endsection

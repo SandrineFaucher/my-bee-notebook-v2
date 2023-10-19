@@ -6,13 +6,14 @@
 
     <h1 class="text-center">Mes récoltes</h1>
 
-    <div class="container fluid mt-5">
+    <div class="container-fluid mt-5">
         <div class="row d-flex justify-content-around p-5">
 
             <!--Formulaire d'ajout d'une récolte-->
-            <div class="col-md-3" id="recolte">
-                <h3 class="text-center">Ajouter une récolte</h3>
-                <form action="{{ route('recoltes.store') }}" method="post">
+            <div class="col-md-3" >
+                
+                <form action="{{ route('recoltes.store') }}" method="post" id="recolte" class="mt-5">
+                    <h3 class="text-center">Ajouter une récolte</h3>
                     @csrf
                     <!--Je passe le user de la récolte en hidden-->
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -20,8 +21,8 @@
                     <!--Ajout du miel en Kg -->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="miel">Miel :</label>
-                            <input type="text" class="form-control @error('miel') is invalid @enderror "
+                            <label for="miel" class="fs-5">Miel :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('miel') is invalid @enderror "
                                 name="miel" />
                         </div>
                     </div>
@@ -32,8 +33,8 @@
                     <!--Ajout du pollen en Kg -->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="pollen">Pollen :</label>
-                            <input type="text" class="form-control @error('pollen') is invalid @enderror "
+                            <label for="pollen" class="fs-5">Pollen :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('pollen') is invalid @enderror "
                                 name="pollen" />
                         </div>
                     </div>
@@ -44,8 +45,8 @@
                     <!--Ajout de gelée royale en Kg -->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="pollen">Gelée Royale :</label>
-                            <input type="text" class="form-control @error('gelee_royale') is invalid @enderror "
+                            <label for="pollen" class="fs-5">Gelée Royale :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('gelee_royale') is invalid @enderror "
                                 name="gelee_royale" />
                         </div>
                     </div>
@@ -56,8 +57,8 @@
                     <!--Ajout de propolis en Kg -->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="pollen">Propolis :</label>
-                            <input type="text" class="form-control @error('propolis') is invalid @enderror "
+                            <label for="pollen" class="fs-5">Propolis :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('propolis') is invalid @enderror "
                                 name="propolis" />
                         </div>
                     </div>
@@ -69,13 +70,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             @foreach ($ruches as $ruche)
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="flexCheckDefault"
-                                        name="rucheId{{ $ruche->id }}">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Ruche n° :{{ $ruche->numero }}
-                                    </label>
-                                </div>
+                            <div class="form-check fs-5">
+                                <input class="form-check-input" type="checkbox" id="flexCheckDefault"
+                                name="rucheId{{ $ruche->id }}">
+                                <label class="form-check-label fs-5" for="flexCheckDefault">
+                                {{ $ruche->numero }}
+                                </label>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -83,7 +84,7 @@
 
                     <!--Valider la récolte-->
                     <div class="col-md-12 text-center mt-4">
-                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center ">
+                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center fs-5">
                             Valider
                         </button>
                     </div>
@@ -92,9 +93,9 @@
 
 
             <!--Affichage des récoltes-->
-            <div class="col-md-7 m-5">
+            <div class="col-md-7 m-5 fs-5">
                 @foreach ($user->recoltes as $recolte)
-                    <table class="table mt-5">
+                    <table class="table ">
                         <thead>
                             <tr>
                                 <th scope="col">Date </th>
@@ -117,7 +118,7 @@
 
                     <div class="icones ">
                         <!--Icones de modification et de suppression des récoltes-->
-                        <div class="row  mx-auto ">
+                        <div class="row  mx-auto mb-5">
                             <div class="d-flex flex-nowrap text-center">
                                 <div class="col-md-5 text-center pe-2">
                                     <!--icon de modification d'une recolte-->
@@ -151,7 +152,7 @@
         <!--CONSTRUCTION DU GRAPHIQUE AVEC CHART.JS-->
         <div class="row text-center">
             <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
-            <div style="width: 800px;" class="mx-auto">
+            <div style="width: 800px;" class="mx-auto mb-5">
                 <canvas id="barCanvas" role="img">
                     <p>Graphique des récoltes</p>
                 </canvas>
@@ -165,26 +166,20 @@
             $miel = [];
             foreach($user->recoltes as $recolte){
                 $dateFormatee = new DateTimeImmutable( $recolte->created_at);
-                 
             array_push($date, $dateFormatee->format('d-m-Y'));
             array_push($miel, $recolte->miel);
             }
-
-            
             @endphp 
             
-
             const barChart = new Chart(barCanvas, {
-
-                
-
+              
                 type: "bar",
                 data: {
                     
                     labels : {{Js::from($date)}},
                     
                     datasets: [{
-                        label: 'Mes récoltes de Miel',
+                        label: 'Mes récoltes de Miel en kg',
                         
                         data : {{Js::from($miel)}},
                         backgroundColor: ['orange']
@@ -205,10 +200,6 @@
             })
         </script>
         
-
-
-
-
        
         <!--Script pour l'affichage du retour en arrière-->
         <script>

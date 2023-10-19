@@ -36,17 +36,17 @@ h1{
 h3, .h3{
     font-family: 'Pacifico', cursive;
 }
+/* welcome.blade.php */
+.shadow{
 
-
-    
-
+    text-shadow: #243B4A 1px 0 10px;
+}
 
 /* register.blade.php */
 #register{
-    width: auto;
+    margin-top: 0;
     height: 150vh;
     background-size: cover;
-   
     display:flex;
     justify-content: center;
     
@@ -57,6 +57,7 @@ h3, .h3{
     color: #243B4A;
     font-weight: 600;
     margin-top: 300px;
+    
 }
 
 /* login.blade.php */
@@ -66,6 +67,7 @@ h3, .h3{
     color: #243B4A;
     font-weight: 600;
     margin-top: 300px;
+    background-size: cover;
 }
 /* layouts/app.blade.php */
 .navbar {
@@ -88,7 +90,8 @@ h3, .h3{
     color: white;
 }
 #messages{
-    margin-top: 200px;
+    margin-top: 170px;
+    font-size: larger;
 }
 /* home.blade.php (+ formulaires de rucher.show et ruche.show)*/
 #home{

@@ -9,10 +9,10 @@
 
     <div class="container-fluid  mt-5 p-2">
         <div class="row d-flex justify-content-around p-5">
-            <div class="col-lg-3 m-4 p-3" id="new-ruche">
+            <div class="col-lg-3 m-4 p-3" >
 
                 <!--Formulaire d'ajout d'une ruche-->
-                <form action="{{ route('ruche.store') }}" method="post">
+                <form action="{{ route('ruche.store') }}" method="post" id="new-ruche">
                     @csrf
                     <!--passe rucher_id dans le formulaire-->
                     <input type="hidden" name="rucher_id" value="{{ $rucher->id }}">
@@ -20,15 +20,15 @@
                     <!--Ajout d'une ruche-->
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="fs-3 text-center">Ajouter une ruche</p>
+                            <h3 class="fs-3 text-center mb-3">Ajouter une ruche</h3>
                         </div>
                     </div>
 
                     <!--Nom de la ruche -->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="nom_ruche">Nom de la ruche :</label>
-                            <select class="form-select word-break: break-word @error('nom_ruche') is invalid @enderror" name="nom_ruche"
+                            <label for="nom_ruche" class="fs-5">Nom de la ruche :</label>
+                            <select class="form-select form-select-lg fs-5 word-break: break-word @error('nom_ruche') is invalid @enderror" name="nom_ruche"
                                 aria-label="Default select example">
                                 <option value=""></option>
                                 <option value="Ruche Dadant">Ruche Dadant</option>
@@ -60,8 +60,8 @@
                     <!--Nombre de cadres -->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="nombre_cadres">Nombre de cadres :</label>
-                            <input type="number" class="form-control @error('nombre_cadres') is invalid @enderror "
+                            <label for="nombre_cadres" class="fs-5">Nombre de cadres :</label>
+                            <input type="number" class="form-control form-control-lg fs-5 @error('nombre_cadres') is invalid @enderror "
                                 name="nombre_cadres" />
                         </div>
                     </div>
@@ -72,8 +72,8 @@
                     <!--Numéro de la ruche -->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="numero">Numéro :</label>
-                            <input type="text" class="form-control @error('numero') is invalid @enderror "
+                            <label for="numero" class="fs-5">Numéro :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('numero') is invalid @enderror "
                                 name="numero" />
                         </div>
                     </div>
@@ -85,8 +85,8 @@
                     <!--Espèce-->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="espece">Espèce :</label>
-                            <select class="form-select @error('espece') is invalid @enderror" name="espece"
+                            <label for="espece" class="fs-5">Espèce :</label>
+                            <select class="form-select form-select-lg fs-5 @error('espece') is invalid @enderror" name="espece"
                                 aria-label="Default select example">
                                 <option value=""></option>
                                 <option value="Abeilles buckfasts">Buckfast (Apis mellifera buckfast)</option>
@@ -109,8 +109,8 @@
                     <!--Provenance-->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="provenance">Provenance :</label>
-                            <select class="form-select @error('provenance') is invalid @enderror" name="provenance"
+                            <label for="provenance" class="fs-5">Provenance :</label>
+                            <select class="form-select form-select-lg fs-5 @error('provenance') is invalid @enderror" name="provenance"
                                 aria-label="Default select example">
                                 <option value=""></option>
                                 <option value="Produit d'une division">Produit d'une division</option>
@@ -126,8 +126,8 @@
                     <!--Lignée reine -->
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="lignee_reine">Lignée :</label>
-                            <input type="text" class="form-control @error('lignee_reine') is invalid @enderror "
+                            <label for="lignee_reine" class="fs-5">Lignée :</label>
+                            <input type="text" class="form-control form-control-lg fs-5 @error('lignee_reine') is invalid @enderror "
                                 name="lignee_reine" />
                         </div>
                     </div>
@@ -135,18 +135,14 @@
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
 
-
-
                     <!--Valider la ruche-->
                     <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center ">
+                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center fs-5">
                             valider
                         </button>
                     </div>
                 </form>
             </div>
-
-
 
             <div class="col-md-8 d-flex justify-content-center flex-wrap" id="square-ruches">
                 @foreach ($rucher->ruches as $ruche)
@@ -167,8 +163,6 @@
                                     
                                 </div>
                           
-
-
                             <!--Affichage des icones de modification et de suppression-->
                             <div class="row">
                                 <div class="d-flex flex-nowrap justify-content-between"> 

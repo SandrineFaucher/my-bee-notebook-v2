@@ -7,7 +7,7 @@
 <button class="btn btn-secondary mx-auto mt-3 text-center ms-5 mb-5"onclick="rtn()">Retour</button>
 
     <div class="container">
-        <div class="col-md-6 mx-auto m-4 p-3 my-auto " id="new-ruche">
+        <div class="col-md-6 mx-auto m-4 p-3 my-auto mb-5" id="new-ruche">
             <form action="{{ route('ruche.update', $ruche) }}" method="post">
                 @csrf
                 @method('put')
@@ -23,8 +23,8 @@
                 <!--Nom de la ruche -->
                 <div class="row">
                     <div class="col-md-12">
-                        <label for="nom_ruche">Nom de la ruche :</label>
-                        <select class="form-select  word-break: break-word @error('nom_ruche') is invalid @enderror" name="nom_ruche"
+                        <label for="nom_ruche" class="fs-5">Nom de la ruche :</label>
+                        <select class="form-select form-select-lg fs-5 word-break: break-word @error('nom_ruche') is invalid @enderror" name="nom_ruche"
                             aria-label="Default select example">
                             <option value=""></option>
                             <option @if($ruche->nom_ruche == 'Ruche Dadant') selected @endif value="Ruche Dadant">Ruche Dadant</option>
@@ -56,8 +56,8 @@
                 <!--Numéro de la ruche -->
                 <div class="row">
                     <div class="col-md-12">
-                        <label for="numero">Numéro :</label>
-                        <input type="text" class="form-control @error('numero') is invalid @enderror " name="numero"
+                        <label for="numero" class="fs-5">Numéro :</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('numero') is invalid @enderror " name="numero"
                             value="{{ $ruche->numero }}" />
                     </div>
                 </div>
@@ -69,8 +69,8 @@
                 <!--Espèce-->
                 <div class="row">
                     <div class="col-md-12">
-                        <label for="espece">Espèce :</label>
-                            <select class="form-select @error('espece') is invalid @enderror" name="espece"
+                        <label for="espece" class="fs-5">Espèce :</label>
+                            <select class="form-select form-select-lg fs-5 @error('espece') is invalid @enderror" name="espece"
                                 aria-label="Default select example">
                                 <option value=""></option>
                                 <option @if($ruche->espece == 'Abeilles buckfasts') selected @endif value="Abeilles buckfasts"> Abeille buckfast (Apis mellifera buckfast)</option>
@@ -94,8 +94,8 @@
                 <!--Provenance-->
                 <div class="row">
                     <div class="col-md-12">
-                        <label for="provenance">Provenance :</label>
-                        <select class="form-select @error('provenance') is invalid @enderror" name="provenance"
+                        <label for="provenance" class="fs-5">Provenance :</label>
+                        <select class="form-select form-select-lg fs-5 @error('provenance') is invalid @enderror" name="provenance"
                             aria-label="Default select example" value="{{ $ruche->provenance }}">
                             <option @if ($ruche->provenance == 'Ruche achetée') selected @endif value="">Ruche achetée</option>
                             <option @if ($ruche->provenance == 'Essaim') selected @endif value="Essaim">Essaim</option>
@@ -110,8 +110,8 @@
                 <!--Lignée reine -->
                 <div class="row">
                     <div class="col-md-12">
-                        <label for="lignee_reine">Lignée :</label>
-                        <input type="text" class="form-control @error('lignee_reine') is invalid @enderror "
+                        <label for="lignee_reine" class="fs-5">Lignée :</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('lignee_reine') is invalid @enderror "
                             name="lignee_reine" value="{{ $ruche->lignee_reine }}" />
                     </div>
                 </div>
@@ -122,8 +122,8 @@
                 <!--Nombre de cadres -->
                 <div class="row">
                     <div class="col-md-12">
-                        <label for="nombre_cadres">Nombre de cadres :</label>
-                        <input type="number" class="form-control @error('nombre_cadres') is invalid @enderror "
+                        <label for="nombre_cadres" class="fs-5">Nombre de cadres :</label>
+                        <input type="number" class="form-control form-control-lg fs-5 @error('nombre_cadres') is invalid @enderror "
                             name="nombre_cadres" value="{{ $ruche->nombre_cadres }}" />
                     </div>
                 </div>
@@ -133,8 +133,8 @@
 
                 <!--Input de transfert d'une ruche sur un autre rucher -->
 
-                <label class="mt-4" for="provenance">Transférer la ruche vers :</label>
-                <select class="form-select @error('rucher_id') is invalid @enderror mt-2" name="rucher_id"
+                <label class="mt-4 fs-5" for="provenance" >Transférer la ruche vers :</label>
+                <select class="form-select form-select-lg fs-5 @error('rucher_id') is invalid @enderror mt-2" name="rucher_id"
                     aria-label="Default select example">
                     @foreach ($user->ruchers as $rucher)
                         <option value="{{ $rucher->id }}">{{ $rucher->nom_rucher }}</option>
@@ -146,14 +146,18 @@
 
                 <!--Valider la ruche-->
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center ">
+                    <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center fs-5 ">
                         Modifier
                     </button>
                 </div>
             </form>
-
-
-
-
         </div>
+    </div>
+        <!--Script pour l'affichage du retour en arrière-->
+    <script>
+        function rtn() {
+            window.history.back();
+        }
+    </script>
+
     @endsection

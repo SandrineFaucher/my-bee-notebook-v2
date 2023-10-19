@@ -62,12 +62,11 @@ class RucheController extends Controller
     {
         // je récupère mes ruches ainsi que ses visites associées avec un eager loading
         $ruche->load('visites');
-
-        //if ($ruche->visites->isNotEmpty())
-        // je trie par date en ordre décroissant de la plus récente à la plus ancienne 
-        $derniereVisite = $ruche->visites->sortByDesc('date_visite')->first();
-        return view('ruche.show', ['ruche'=> $ruche,'derniereVisite' => $derniereVisite]);
-    } 
+      
+                return view('ruche.show', ['ruche'=> $ruche]);
+                 
+    }
+    
     /**
      * Show the form for editing the specified resource.
      */

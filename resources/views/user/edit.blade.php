@@ -13,7 +13,7 @@
         <!--Titre encadré : registre-elevage-->
         <div class="col-lg-3 p-3    mt-5" id="registre-elevage">
             <h3 class="text-center">Registre d'élevage</h3>
-            <h6 class="mb-5 text-center">* champs obligatoires pour générer le registre d'élevage</h6>
+            <h5 class="mb-5 text-center">* champs obligatoires pour générer le registre d'élevage</h5>
 
 
             <!-- J'INSTALLE UN FORMULAIRE CONDITIONNEL POUR CREER OU MODIFIER L'ADRESSE NECESSAIRE POUR GENERER UN REGISTRE D'ELEVAGE-->
@@ -43,8 +43,8 @@
 
                     <!--Adresse-->
                     <div class="col-md-12 mt-2 mb-3">
-                        <label for="inputAddress" class="form-label">Adresse *</label>
-                        <input type="text" class="form-control @error('adresse') is invalid @enderror" id="inputAddresse"
+                        <label for="inputAddress" class="form-label fs-5">Adresse *</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('adresse') is invalid @enderror" id="inputAddresse"
                             name="adresse" value="{{ $adressenapi->adresse }}">
                     </div>
                     @error('adresse')
@@ -53,8 +53,8 @@
 
                     <!--Ville-->
                     <div class="col-md-12 mt-2 mb-3">
-                        <label for="inputVille" class="form-label">Ville *</label>
-                        <input type="text" class="form-control @error('ville') is invalid @enderror" id="inputVille"
+                        <label for="inputVille" class="form-label fs-5">Ville *</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('ville') is invalid @enderror" id="inputVille"
                             name="ville" value="{{ $adressenapi->ville }}">
                     </div>
                     @error('ville')
@@ -63,8 +63,8 @@
 
                     <!--Code-postal-->
                     <div class="col-md-5 mt-2 mb-3">
-                        <label for="inputCodePostal" class="form-label">Code postal *</label>
-                        <input type="text" class="form-control @error('code_postal') is invalid @enderror"
+                        <label for="inputCodePostal" class="form-label fs-5">Code postal *</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('code_postal') is invalid @enderror"
                             id="inputCodePostal" name="code_postal" value="{{ $adressenapi->code_postal }}">
                     </div>
                     @error('code_postal')
@@ -73,8 +73,8 @@
 
                     <!--Numéro Api-->
                     <div class="col-md-5 mt-2 mb-3">
-                        <label for="inputNapi" class="form-label">N° Api *</label>
-                        <input type="text" class="form-control @error('napi') is invalid @enderror" id="inputNapi"
+                        <label for="inputNapi" class="form-label fs-5">N° Api *</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('napi') is invalid @enderror" id="inputNapi"
                             name="napi" value="{{ $adressenapi->napi }}">
                     </div>
                     @error('napi')
@@ -83,8 +83,8 @@
 
                     <!--Numero siret-->
                     <div class="col-md-5 mt-2 mb-3">
-                        <label for="inputSiret" class="form-label">N° SIRET </label>
-                        <input type="text" class="form-control @error('siret') is invalid @enderror" id="inputSiret"
+                        <label for="inputSiret" class="form-label fs-5">N° SIRET </label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('siret') is invalid @enderror" id="inputSiret"
                             name="siret" value="{{ $adressenapi->siret }}">
                     </div>
                     @error('siret')
@@ -94,7 +94,7 @@
 
                     <!--bouton de modification -->
                     <div class="text-center">
-                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
+                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center fs-5">
                             Modifier
                         </button>
                     </div>
@@ -109,8 +109,8 @@
 
                     <!--Adresse-->
                     <div class="col-md-12 mt-2 mb-3">
-                        <label for="inputAddress" class="form-label">Adresse *</label>
-                        <input type="text" class="form-control @error('adresse') is invalid @enderror" id="inputAddresse"
+                        <label for="inputAddress" class="form-label fs-5">Adresse *</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('adresse') is invalid @enderror" id="inputAddresse"
                             name="adresse" value="">
                     </div>
                     @error('adresse')
@@ -119,8 +119,8 @@
 
                     <!--Ville-->
                     <div class="col-md-12 mt-2 mb-3">
-                        <label for="inputVille" class="form-label">Ville *</label>
-                        <input type="text" class="form-control @error('ville') is invalid @enderror" id="inputVille"
+                        <label for="inputVille" class="form-label fs-5">Ville *</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('ville') is invalid @enderror" id="inputVille"
                             name="ville">
                     </div>
                     @error('ville')
@@ -129,8 +129,8 @@
 
                     <!--Code-postal-->
                     <div class="col-md-5 mt-2 mb-3">
-                        <label for="inputCodePostal" class="form-label">Code postal *</label>
-                        <input type="text" class="form-control @error('code_postal') is invalid @enderror"
+                        <label for="inputCodePostal" class="form-label fs-5">Code postal *</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('code_postal') is invalid @enderror"
                             id="inputCodePostal" name="code_postal">
                     </div>
                     @error('code_postal')
@@ -139,8 +139,8 @@
 
                     <!--Numéro Api-->
                     <div class="col-md-5 mt-2 mb-3">
-                        <label for="inputNapi" class="form-label">N° Api *</label>
-                        <input type="text" class="form-control @error('napi') is invalid @enderror" id="inputNapi"
+                        <label for="inputNapi" class="form-label fs-5">N° Api *</label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('napi') is invalid @enderror" id="inputNapi"
                             name="napi">
                     </div>
                     @error('napi')
@@ -149,8 +149,8 @@
 
                     <!--Numero siret-->
                     <div class="col-md-5 mt-2 mb-3">
-                        <label for="inputSiret" class="form-label">N° SIRET </label>
-                        <input type="text" class="form-control @error('siret') is invalid @enderror" id="inputSiret"
+                        <label for="inputSiret" class="form-label fs-5">N° SIRET </label>
+                        <input type="text" class="form-control form-control-lg fs-5 @error('siret') is invalid @enderror" id="inputSiret"
                             name="siret">
                     </div>
                     @error('siret')
@@ -159,7 +159,7 @@
                     
                     <!--bouton de validation -->
                     <div class="text-center">
-                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center">
+                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center fs-5">
                             Valider
                         </button>
                     </div>
@@ -169,7 +169,7 @@
             <!--Affichage du lien pour générer le pdf du registre d'élevage-->
             <div class="text-center mt-3">
             <h3>Je génère le document</h3>
-            <a href="{{ route('pdf') }}"> <i class="fa-solid fa-file-pdf" id="icone-compte1" ></i> </a>
+            <a href="{{ route('pdf') }}"> <i class="fa-solid fa-file-pdf " id="icone-compte1" ></i> </a>
             </div>
 
         </div>
@@ -185,8 +185,8 @@
 
                 <!--nom-->
                 <div class="col-md-12 mt-5 mb-3">
-                    <label for="inputAddress" class="form-label">Nom </label>
-                    <input type="text" class="form-control @error('nom') is invalid @enderror" id="inputAddress"
+                    <label for="inputAddress" class="form-label fs-5">Nom </label>
+                    <input type="text" class="form-control form-control-lg fs-5 @error('nom') is invalid @enderror" id="inputAddress"
                         name="nom" value="{{ $user->nom }}">
                 </div>
                 @error('nom')
@@ -195,8 +195,8 @@
 
                 <!--prénom-->
                 <div class="col-md-12 mt-2 mb-3">
-                    <label for="inputVille" class="form-label">Prénom </label>
-                    <input type="text" class="form-control @error('prenom') is invalid @enderror" id="inputAddress"
+                    <label for="inputVille" class="form-label fs-5">Prénom </label>
+                    <input type="text" class="form-control form-control-lg fs-5 @error('prenom') is invalid @enderror" id="inputAddress"
                         name="prenom" value="{{ $user->prenom }}">
                 </div>
                 @error('prenom')
@@ -205,8 +205,8 @@
 
                 <!--email-->
                 <div class="col-md-12 mt-2 mb-3">
-                    <label for="inputCodePostal" class="form-label">email</label>
-                    <input type="email" class="form-control @error('email') is invalid @enderror" id="inputAddress"
+                    <label for="inputCodePostal" class="form-label fs-5">email</label>
+                    <input type="email" class="form-control form-control-lg fs-5 @error('email') is invalid @enderror" id="inputAddress"
                         name="email" value="{{ $user->email }}">
                 </div>
                 @error('email')
@@ -225,10 +225,10 @@
                     @csrf
                     @method('delete')
 
-                    <button type="submit" class="btn btn-secondary col-md-8 mb-2 mt-3">
+                    <button type="submit" class="btn btn-secondary col-md-8 mb-2 mt-3 fs-5">
                         Suppression du compte
                     </button>
-                    <p><i class="fa-solid fs-4 fa-triangle-exclamation" id="icone-compte2"></i> Cette action entraîne la suppression de tous
+                    <p class="fs-5"><i class="fa-solid fs-4 fa-triangle-exclamation" id="icone-compte2"></i> Cette action entraîne la suppression de tous
                         les éléments associés au compte</P>
                 </form>
             </div>
@@ -245,8 +245,8 @@
 
                 <!--Mot de passe actuel-->
                 <div class="col-md-12 mt-5 mb-3">
-                    <label for="inputPassword" class="form-label">Mot de passe actuel</label>
-                    <input type="password" class="form-control @error('password') is invalid @enderror"
+                    <label for="inputPassword" class="form-label fs-5">Mot de passe actuel</label>
+                    <input type="password" class="form-control form-control-lg fs-5 @error('password') is invalid @enderror"
                         placehoholder="Mot de passe actuel" id="inputAddress" name="actuel_password"
                         value="{{ old('password') }}">
                 </div>
@@ -256,10 +256,10 @@
 
                 <!--Nouveau mot de passe-->
                 <div class="col-md-12 mt-5 mb-3">
-                    <label for="inputPassword" class="form-label">Nouveau mot de passe</label>
-                    <input type="password" class="form-control @error('password') is invalid @enderror"
+                    <label for="inputPassword" class="form-label fs-5">Nouveau mot de passe</label>
+                    <input type="password" class="form-control form-control-lg fs-5 @error('password') is invalid @enderror"
                         id="inputPassword" name="nouveau_password" value="{{ old('password') }}">
-                    <div id="emailHelp" class="form-text ms-1">Entre 8 et 15 caractères : 1 lettre, 1 chiffre, 1 caractère
+                    <div id="emailHelp" class="form-text ms-1 fs-5">Entre 8 et 15 caractères : 1 lettre, 1 chiffre, 1 caractère
                         spécial</div>
                 </div>
                 @error('password')
@@ -268,8 +268,8 @@
 
                 <!--Confirmation du mot de passe-->
                 <div class="col-md-12 mt-5 mb-5">
-                    <label for="inputPassword" class="form-label">Confirmer le mot de passe</label>
-                    <input type="password" class="form-control @error('password') is invalid @enderror"
+                    <label for="inputPassword" class="form-label fs-5">Confirmer le mot de passe</label>
+                    <input type="password" class="form-control form-control-lg fs-5 @error('password') is invalid @enderror"
                         id="inputPassword" name="nouveau_password_confirmation" value="{{ old('password') }}">
                 </div>
                 @error('password')
@@ -277,7 +277,7 @@
                 @enderror
 
                 <div class="text-center ">
-                    <button type="submit" class="btn btn-secondary mx-auto mt-5 text-center">
+                    <button type="submit" class="btn btn-secondary mx-auto mt-5 text-center fs-5">
                         Modifier le mot de passe
                     </button>
                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container pt-5 pb-5">
 <h1 class="text-center mb-5">Politique de confidentialité</h1>
 
 <h2>Définitions</h2>
@@ -80,14 +80,14 @@
 
                 <p>Le Client est informé des réglementations concernant la communication marketing, la loi du 21 Juin 2014 pour la confiance dans l’Economie Numérique, la Loi Informatique et Liberté du 06 Août 2004 ainsi que du Règlement Général sur la Protection des Données (RGPD : n° 2016-679). </p>
 
-                <h3>7.1 Responsables de la collecte des données personnelles</h3>
+                <h2>7.1 Responsables de la collecte des données personnelles</h2>
 
                 <p>Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’Utilisateur et de sa navigation sur le Site, le responsable du traitement des Données Personnelles est : Faucher Sandrine. <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a>est représenté par Faucher Sandrine, son représentant légal</p>
 
                 <p>En tant que responsable du traitement des données qu’il collecte, <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> s’engage à respecter le cadre des dispositions légales en vigueur. Il lui appartient notamment au Client d’établir les finalités de ses traitements de données, de fournir à ses prospects et clients, à partir de la collecte de leurs consentements, une information complète sur le traitement de leurs données personnelles et de maintenir un registre des traitements conforme à la réalité.
                 Chaque fois que <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> traite des Données Personnelles, <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> prend toutes les mesures raisonnables pour s’assurer de l’exactitude et de la pertinence des Données Personnelles au regard des finalités pour lesquelles <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> les traite.</p>
                  
-                <h3>7.2 Finalité des données collectées</h3>
+                <h2>7.2 Finalité des données collectées</h2>
                  
                 <p><a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> est susceptible de traiter tout ou partie des données : </p>
 
@@ -107,7 +107,7 @@
 
                 <p><a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> ne commercialise pas vos données personnelles qui sont donc uniquement utilisées par nécessité ou à des fins statistiques et d’analyses.</p>
                  
-                <h3>7.3 Droit d’accès, de rectification et d’opposition</h3>
+                <h2>7.3 Droit d’accès, de rectification et d’opposition</h2>
                  
                 <p>
                 Conformément à la réglementation européenne en vigueur, les Utilisateurs de <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> disposent des droits suivants : </p>
@@ -138,7 +138,7 @@
                 <p>
                 Les demandes de suppression de Données Personnelles seront soumises aux obligations qui sont imposées à <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> par la loi, notamment en matière de conservation ou d’archivage des documents. Enfin, les Utilisateurs de <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> peuvent déposer une réclamation auprès des autorités de contrôle, et notamment de la CNIL (https://www.cnil.fr/fr/plaintes).</p>
                  
-                <h3>7.4 Non-communication des données personnelles</h3>
+                <h2>7.4 Non-communication des données personnelles</h2>
 
                 <p>
                 <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> s’interdit de traiter, héberger ou transférer les Informations collectées sur ses Clients vers un pays situé en dehors de l’Union européenne ou reconnu comme « non adéquat » par la Commission européenne sans en informer préalablement le client. Pour autant, <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> reste libre du choix de ses sous-traitants techniques et commerciaux à la condition qu’il présentent les garanties suffisantes au regard des exigences du Règlement Général sur la Protection des Données (RGPD : n° 2016-679).</p>
@@ -161,7 +161,7 @@
                 <p>
                 Aucune information personnelle de l'utilisateur du site <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> n'est publiée à l'insu de l'utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l'hypothèse du rachat de <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> et de ses droits permettrait la transmission des dites informations à l'éventuel acquéreur qui serait à son tour tenu de la même obligation de conservation et de modification des données vis à vis de l'utilisateur du site <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a>.</p>
 
-                <h3>Sécurité</h3>
+                <h2>Sécurité</h2>
 
                 <p>
                 Pour assurer la sécurité et la confidentialité des Données Personnelles et des Données Personnelles de Santé, <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> utilise des réseaux protégés par des dispositifs standards tels que par pare-feu, la pseudonymisation, l’encryption et mot de passe. </p>
@@ -175,7 +175,7 @@
                 Sauf si vous décidez de désactiver les cookies, vous acceptez que le site puisse les utiliser. Vous pouvez à tout moment désactiver ces cookies et ce gratuitement à partir des possibilités de désactivation qui vous sont offertes et rappelées ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tout ou partie des Services proposés par le site.
                 <p></p>
 
-                <h3>9.1. « COOKIES »</h3>
+                <h2>9.1. « COOKIES »</h2>
                  <p>
                 Un « cookie » est un petit fichier d’information envoyé sur le navigateur de l’Utilisateur et enregistré au sein du terminal de l’Utilisateur (ex : ordinateur, smartphone), (ci-après « Cookies »). Ce fichier comprend des informations telles que le nom de domaine de l’Utilisateur, le fournisseur d’accès Internet de l’Utilisateur, le système d’exploitation de l’Utilisateur, ainsi que la date et l’heure d’accès. Les Cookies ne risquent en aucun cas d’endommager le terminal de l’Utilisateur.</p>
                  <p>
@@ -193,7 +193,7 @@
                  <p>
                 Ces types de cookies ne sont déposés sur vos terminaux qu’à condition que vous y consentiez, en continuant votre navigation sur le Site Internet ou l’application mobile de <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a>. À tout moment, l’Utilisateur peut néanmoins revenir sur son consentement à ce que <a href="https://my-bee-notebook.sandrinefaucher.fr">https://my-bee-notebook.sandrinefaucher.fr</a> dépose ce type de cookies.</p>
                  
-                <h3>Article 9.2. BALISES (“TAGS”) INTERNET</h3>
+                <h2>Article 9.2. BALISES (“TAGS”) INTERNET</h2>
                  
 
                 <p>

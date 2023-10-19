@@ -7,14 +7,14 @@
 
     <h1 class="text-center"> Visite de la Ruche : {{ $ruche->nom_ruche }} - N° {{ $ruche->numero }}</h1>
 
-    <div class="container-fluid mt-5 p-5">
-        <div class="row d-flex justify-content-around p-5">
+    <div class="container-fluid mt-5 p-5 text center">
+        <div class="row ">
 
 
             <!--Formulaire de visite-->
-            <div class="col-lg-4 " id="visite">
-                <h3 class="text-center">Création d'une visite</h3>
-                <form action="{{ route('visites.store') }}" method="post">
+            <div class="col-lg-4">
+                <form action="{{ route('visites.store') }}" method="post" id="visite">
+                    <h3 class="text-center">Création d'une visite</h3>
                     @csrf
                     <!--passe ruche_id dans le formulaire-->
                     <input type="hidden" name="ruche_id" value="{{ $ruche->id }}">
@@ -22,8 +22,8 @@
                     <!--Champ date de la visite-->
                     <div class="row">
                         <div class="col-md-12 ">
-                            <label for="date_visite">Date de visite :</label>
-                            <input type="date" class="form-control @error('date_visite') is invalid @enderror "
+                            <label for="date_visite" class="fs-5">Date de visite :</label>
+                            <input type="date" class="form-control form-control-lg fs-5 @error('date_visite') is invalid @enderror "
                                 name="date_visite" />
                         </div>
                         @error('date_visite')
@@ -34,9 +34,9 @@
                     <!--Nombre cadres d'abeilles-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="nombre_cadres_abeilles">Nombre de cadres d'abeilles :</label>
-                            <input type="number"
-                                class="form-control @error('nombre_cadres_abeilles') is invalid @enderror "
+                            <label for="nombre_cadres_abeilles" class="fs-5">Nombre de cadres d'abeilles :</label>
+                            <input type="number" min="0"
+                                class="form-control form-control-lg fs-5 @error('nombre_cadres_abeilles') is invalid @enderror "
                                 name="nombre_cadres_abeilles" />
                         </div>
                         @error('nombre_cadres_abeilles')
@@ -47,8 +47,8 @@
                     <!--Nombre cadres de couvain-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="nombre_cadres_couvain">Nombre de cadres de couvain :</label>
-                            <input type="number" class="form-control @error('nombre_cadres_couvain') is invalid @enderror "
+                            <label for="nombre_cadres_couvain" class="fs-5">Nombre de cadres de couvain :</label>
+                            <input type="number" min="0" class="form-control form-control-lg fs-5 @error('nombre_cadres_couvain') is invalid @enderror "
                                 name="nombre_cadres_couvain" />
                         </div>
                         @error('nombre_cadres_couvain')
@@ -59,8 +59,8 @@
                     <!--Nombre cadres de miel-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="nombre_cadres_miel">Nombre de cadres de miel :</label>
-                            <input type="number" class="form-control @error('nombre_cadres_miel') is invalid @enderror "
+                            <label for="nombre_cadres_miel" class="fs-5">Nombre de cadres de miel :</label>
+                            <input type="number" min="0" class="form-control form-control-lg fs-5 @error('nombre_cadres_miel') is invalid @enderror "
                                 name="nombre_cadres_miel" />
                         </div>
                         @error('nombre_cadres_miel')
@@ -71,8 +71,8 @@
                     <!--Nombre de hausses-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="nombre_hausses">Nombre de hausses :</label>
-                            <input type="number" class="form-control @error('nombre_hausses') is invalid @enderror "
+                            <label for="nombre_hausses" class="fs-5">Nombre de hausses :</label>
+                            <input type="number" min="0" class="form-control form-control-lg fs-5 @error('nombre_hausses') is invalid @enderror "
                                 name="nombre_hausses" />
                         </div>
                         @error('nombre_hausses')
@@ -83,10 +83,9 @@
                     <!--Reine vue-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="reine_vue">Reine vue :</label>
-                            <select class="form-select @error('reine_vue') is invalid @enderror" name="reine_vue"
+                            <label for="reine_vue" class="fs-5">Reine vue :</label>
+                            <select class="form-select form-select-lg fs-5 @error('reine_vue') is invalid @enderror" name="reine_vue"
                                 aria-label="Default select example">
-                                <option value="">  </option>
                                 <option value="Non"> Non </option>
                                 <option value="Oui"> Oui </option>
                             </select>
@@ -99,8 +98,8 @@
                     <!--Cellules royales-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="cellules_royales">Cellules royales :</label>
-                            <input type="number" class="form-control @error('cellules_royales') is invalid @enderror "
+                            <label for="cellules_royales" class="fs-5">Cellules royales :</label>
+                            <input type="number" min="0" class="form-control form-control-lg fs-5 @error('cellules_royales') is invalid @enderror "
                                 name="cellules_royales" />
                         </div>
                         @error('cellules_royales')
@@ -111,8 +110,8 @@
                     <!--Ruche orpheline-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="reine_vue">Ruche orpheline :</label>
-                            <select class="form-select @error('reine_vue') is invalid @enderror" name="ruche_orpheline"
+                            <label for="ruche_orpheline" class="fs-5">Ruche orpheline :</label>
+                            <select class="form-select form-select-lg fs-5 @error('reine_vue') is invalid @enderror" name="ruche_orpheline"
                                 aria-label="Default select example">
                                 <option value=""></option>
                                 <option value="Oui"> Oui </option>
@@ -128,12 +127,12 @@
                     <!--Essaimage-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="reine_vue">Essaimage :</label>
-                            <select class="form-select @error('reine_vue') is invalid @enderror" name="essaimage"
+                            <label for="essaimage" class="fs-5">Essaimage :</label>
+                            <select class="form-select form-select-lg fs-5 @error('reine_vue') is invalid @enderror" name="essaimage"
                                 aria-label="Default select example">
-                                <option value=""></option>
+                                <option value="A surveiller">A surveiller</option>
                                 <option value="A essaimé"> A essaimé </option>
-                                <option value="Peut essaimer"> Risque élevé d'essaimage </option>
+                                <option value="Risque élevé d'essaimage"> Risque élevé d'essaimage </option>
                             </select>
                             @error('essaimage')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -144,12 +143,13 @@
                     <!--Nourrissement-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="reine_vue">Nourrissement :</label>
-                            <select class="form-select @error('nourrissement') is invalid @enderror" name="nourrissement"
+                            <label for="nourrissement" class="fs-5">Nourrissement :</label>
+                            <select class="form-select form-select-lg fs-5 @error('nourrissement') is invalid @enderror" name="nourrissement"
                                 aria-label="Default select example">
                                 <option value=""></option>
                                 <option value="sirop de glucose">Sirop de glucose </option>
                                 <option value="candy"> Pain de candy </option>
+                                <option value="pain protéiné">Pain protéiné</option>
                             </select>
                             @error('nourrissement')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -160,8 +160,8 @@
                     <!--Traitement-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="reine_vue">Traitement :</label>
-                            <select class="form-select @error('traitement') is invalid @enderror" name="traitement"
+                            <label for="traitement" class="fs-5">Traitement :</label>
+                            <select class="form-select form-select-lg fs-5 @error('traitement') is invalid @enderror" name="traitement"
                                 aria-label="Default select example">
                                 <option value="Bande anti-varoa">Bande anti-varoa </option>
                                 <option value="Acide oxalyque"> Acide oxalique </option>
@@ -175,8 +175,8 @@
                     <!--Détail du traitement-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="commentaire">Détails sanitaires (*registre d'élevage) :</label>
-                            <textarea class="form-control @error('detail_traitement') is invalid @enderror " name="detail_traitement"
+                            <label for="commentaire" class="fs-5">Détails sanitaires (*registre d'élevage) :</label>
+                            <textarea class="form-control form-control-lg fs-5 @error('detail_traitement') is invalid @enderror " name="detail_traitement"
                                 rows="5"></textarea>
                         </div>
                         @error('detail_traitement')
@@ -187,8 +187,8 @@
                     <!--Grille à reine-->
                     <div class="row">
                         <div class="col-md_12 mt-3">
-                            <label class="me-3" for="grille_reine">Grille à reine : </label>
-                            <div class="form-check form-switch">
+                            <label class="me-3 fs-5" for="grille_reine">Grille à reine : </label>
+                            <div class="form-check form-switch fs-5">
                                 <input class="form-check-input @error('grille_reine') is invalid @enderror"
                                     type="checkbox" role="switch" id="flexSwitchCheckChecked" name="grille_reine"
                                     value="1">
@@ -202,8 +202,8 @@
                     <!--Chasse abeilles-->
                     <div class="row">
                         <div class="col-md_12 mt-3">
-                            <label class="me-3" for="chasse_abeilles">Chasse abeilles : </label>
-                            <div class="form-check form-switch">
+                            <label class="me-3 fs-5" for="chasse_abeilles">Chasse abeilles : </label>
+                            <div class="form-check form-switch fs-5">
                                 <input class="form-check-input @error('chasse_abeilles') is invalid @enderror"
                                     type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
                                     name="chasse_abeilles" value="1">
@@ -217,8 +217,8 @@
                     <!--Grille propolis-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label class="me-3" for="grille_propolis">Grille à propolis : </label>
-                            <div class="form-check form-switch">
+                            <label class="me-3 fs-5" for="grille_propolis">Grille à propolis : </label>
+                            <div class="form-check form-switch fs-5">
                                 <input class="form-check-input @error('grille_propolis') is invalid @enderror"
                                     type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
                                     name="grille_propolis" value="1">
@@ -232,8 +232,8 @@
                     <!--Force-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="force">Force de la ruche de 1 à 10 :</label>
-                            <input type="range" class="form-range @error('force') is invalid @enderror "
+                            <label for="force" class="fs-5">Force de la ruche de 1 à 10 :</label>
+                            <input type="range" class="form-range  fs-5 @error('force') is invalid @enderror "
                                 name="force" min="1" max="10" />
                         </div>
                         @error('force')
@@ -244,8 +244,8 @@
                     <!--Commentaire-->
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <label for="commentaire">Commentaire :</label>
-                            <textarea class="form-control @error('commentaire') is invalid @enderror " name="commentaire" rows="5"></textarea>
+                            <label for="commentaire" class="fs-5">Commentaire :</label>
+                            <textarea class="form-control form-control-lg fs-5 @error('commentaire') is invalid @enderror " name="commentaire" rows="5"></textarea>
                         </div>
                         @error('commentaire')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -253,26 +253,27 @@
                     </div>
 
                     <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center ">
+                        <button type="submit" class="btn btn-secondary mx-auto mt-3 text-center fs-5">
                             valider
                         </button>
                     </div>
                 </form>
             </div>
 
-            <div class="col-lg-8 p-2 ps-4 mt-5 d-flex justify-content-around">
+            <div class="col-lg-8  ps-4 mt-3">
                 <!--Affichage d'une visite-->
-                <div class="col-lg-8 ">
-                    <h3 class="text-center">
-                        Visite du : {{ $derniereVisite->date_visite ? date('d/m/y', strtotime($derniereVisite->date_visite)) : 'Aucune visite récente' }}
+                <div class="col-lg-8 mx-auto">
+                    @foreach($ruche->visites as $visite)
+                    <h3 class="text-center mt-4">
+                        Visite du : {{ $visite->date_visite ? date('d/m/y', strtotime($visite->date_visite)) : 'Aucune visite récente' }}
 
                         <!--Affichage des icones de modification et de suppression-->
-                        <div class="row text-center ">
+                        <div class="row text-center">
                             <div class="col-md-12 d-flex justify-content-around">
                                 <div class="col-md-6  text-center  ">
 
                                     <!--icone de modification d'une visite-->
-                                    <a href="{{ route('visites.edit', $derniereVisite) }}">
+                                    <a href="{{ route('visites.edit', $visite) }}">
                                         <i class="fa-sharp fa-solid fa-pen-to-square fs-5 text-secondary-emphasis"
                                             title="Modifier"></i>
                                     </a>
@@ -280,7 +281,7 @@
 
                                 <div class="col-md-6 text-center  ">
                                     <!--icon de suppression du rucher-->
-                                    <form action="{{ route('visites.destroy', $derniereVisite) }}" method="post">
+                                    <form action="{{ route('visites.destroy', $visite) }}" method="post">
                                         @csrf
                                         @method('delete')
 
@@ -295,15 +296,14 @@
                     </h3>
 
 
-                    <ul class="list-group ">
-
+                    <ul class="list-group fs-5">
                         <li class="list-group-item">
                             <div class="col-md-12 d-flex justify-content-around pt-3">
-                                <div class="col-md-6 ">
+                                <div class="col-md-6">
                                     <p>Cadres d'abeilles : </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->nombre_cadres_abeilles }}
+                                    {{ $visite->nombre_cadres_abeilles }}
                                 </div>
                             </div>
                         </li>
@@ -313,7 +313,7 @@
                                     <p>Cadres de couvain : </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->nombre_cadres_couvain }}
+                                    {{ $visite->nombre_cadres_couvain }}
                                 </div>
                             </div>
                         </li>
@@ -323,21 +323,21 @@
                                     <p>Cadres de miel : </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->nombre_cadres_miel }}
+                                    {{ $visite->nombre_cadres_miel }}
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="col-md-12 d-flex justify-content-around pt-3">
-                                <div class="col-md-6">
+                                <div class="col-md-6 ">
                                     <p>Hausses : </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->nombre_hausses }}
+                                    {{ $visite->nombre_hausses }}
                                 </div>
                             </div>
                         </li>
-                        @if ($derniereVisite->reine_vue == 'Oui')
+                        @if ($visite->reine_vue == 'Oui')
                         <li class="list-group-item">
                             <div class="col-md-12 d-flex justify-content-around pt-3">
                                 <div class="col-md-6">
@@ -348,10 +348,10 @@
                                 </div>
                             </div>
                         </li>
-                        @elseif($derniereVisite->reine_vue == 'Non')
+                        @elseif($visite->reine_vue == 'Non')
                         <li class="list-group-item">
-                            <div class="col-md-12 d-flex justify-content-around pt-3 pr-0">
-                                <div class="col-md-6 mx-auto">
+                            <div class="col-md-12 d-flex justify-content-around pt-3 ">
+                                <div class="col-md-6 ">
                                     <p>Reine vue : </p>
                                 </div>
                                 <div class="col-md-6 text-center">
@@ -366,7 +366,7 @@
                                     <p>Cellules royales :  </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->cellules_royales }}
+                                    {{ $visite->cellules_royales }}
                                 </div>
                             </div>
                         </li>
@@ -376,7 +376,7 @@
                                     <p>Ruche orpheline :  </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->ruche_orpheline }}
+                                    {{ $visite->ruche_orpheline }}
                                 </div>
                             </div>
                         </li>
@@ -386,7 +386,7 @@
                                     <p>Essaimage :  </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->essaimage }}
+                                    {{ $visite->essaimage }}
                                 </div>
                             </div>
                         </li>
@@ -396,7 +396,7 @@
                                     <p>Nourrissement :  </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->nourrissement }}
+                                    {{ $visite->nourrissement }}
                                 </div>
                             </div>
                         </li>
@@ -406,19 +406,19 @@
                                     <p>Traitements :  </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->traitement }}
+                                    {{ $visite->traitement }}
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item word-break: break-word">Détails sanitaires :
-                            {{ $derniereVisite->detail_traitement }}</li>
+                            {{ $visite->detail_traitement }}</li>
                         <li class="list-group-item">
                             <div class="col-md-12 d-flex justify-content-around pt-3">
                                 <div class="col-md-6">
                                     <p>Grille à reine :  </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->grille_reine }}
+                                    {{ $visite->grille_reine }}
                                 </div>
                             </div>
                         </li>
@@ -428,7 +428,7 @@
                                     <p>Chasse abeilles :   </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->chasse_abeilles }}
+                                    {{ $visite->chasse_abeilles }}
                                 </div>
                             </div>
                         </li>
@@ -438,7 +438,7 @@
                                     <p>Grilles à propolis :   </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->grille_propolis }}
+                                    {{ $visite->grille_propolis }}
                                 </div>
                             </div>
                         </li>
@@ -448,13 +448,14 @@
                                     <p>Force de la ruche :   </p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    {{ $derniereVisite->force }}
+                                    {{ $visite->force }}
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item word-break: break-word">Commentaire :
-                            {{ $derniereVisite->commentaire }}</li>
+                            {{ $visite->commentaire }}</li>
                     </ul>
+                    @endforeach
                 </div>
             </div>
         </div>

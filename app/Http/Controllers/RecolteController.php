@@ -55,10 +55,10 @@ class RecolteController extends Controller
     {
         // je valide mes données de formulaire
         $request->validate([
-            'miel'          => 'nullable|min:1|max:4',
-            'pollen'        => 'nullable|min:1||max:4',
-            'gelee_royale'  => 'nullable|min:1|max:4',
-            'propolis  '    => 'nullable|min:1|max:4',
+            'miel'          => 'nullable|min:1|max:6',
+            'pollen'        => 'nullable|min:1|max:6',
+            'gelee_royale'  => 'nullable|min:1|max:6',
+            'propolis  '    => 'nullable|min:1|max:6',
         ]);
 
     
@@ -71,17 +71,15 @@ class RecolteController extends Controller
             'user_id'           => $request->user_id,
         ]);
         
-        //j'attache les ruches appartenant à une récolte
-        for($i = 1; $i <= Ruche::count(); $i ++){
-            //je vérifie avec une condition les checkbox ruches cochées
-            if($request->input ('rucheId'.$i)){
-                $recolte->ruches()->attach($i);
+        //Syntaxe de rattachement 
+        foreach (Ruche::all() as $ruche) {
+            if (isset($request['rucheId' . $ruche->id])) {
+                $recolte->ruches()->attach($ruche->id);
             }
         }
-
         return back()->with('message', 'Votre récolte est bien enregistrée !');
-    }
-
+        }
+    
     /**
      * Display the specified resource.
      */
@@ -119,7 +117,7 @@ class RecolteController extends Controller
         // je valide mes données de formulaire
         $request->validate([
             'miel'          => 'nullable|min:1|max:6',
-            'pollen'        => 'nullable|min:1||max:6',
+            'pollen'        => 'nullable|min:1|max:6',
             'gelee_royale'  => 'nullable|min:1|max:6',
             'propolis  '    => 'nullable|min:1|max:6',
         ]);
@@ -133,6 +131,22 @@ class RecolteController extends Controller
             'propolis'          => $request->propolis,
             'user_id'           => $request->user_id,
         ]);
+
+        // Eager loading pour charger les ruches liées à la récolte
+        $recolte->load('ruches');
+
+        //on les retire ensuite de la table intermédiaire
+        foreach ($recolte->ruches as $ruche) {
+            $recolte->ruches()->detach($ruche);
+        }
+
+        //Syntaxe de rattachement 
+        foreach (Ruche::all() as $ruche) {
+            if (isset($request['rucheId' . $ruche->id])) {
+                $recolte->ruches()->attach($ruche->id);
+            }
+        }
+
         //je retourne un message de confirmation à l'utilisateur 
         return redirect()->route('recoltes.index')->with('message', 'Votre récolte a bien été modifiée !');
     }
